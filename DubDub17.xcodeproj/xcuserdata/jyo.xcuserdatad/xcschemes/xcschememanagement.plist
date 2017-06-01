@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>DubDubCore.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>327C48F91EE0730300705D90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>327C49131EE0731B00705D90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
