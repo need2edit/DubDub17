@@ -8,6 +8,44 @@
 
 import UIKit
 
+class Screens {
+    
+    func initialViewControllerForStoryboard<A: UIViewController>(_ storyboard: UIStoryboard.Storyboard) -> A {
+        guard let vc = UIStoryboard(storyboard).instantiateInitialViewController() as? A else { fatalError() }
+        return vc
+    }
+    
+    func root() -> UITabBarController {
+        let tc: UITabBarController = initialViewControllerForStoryboard(.main)
+        return tc
+    }
+    
+    
+    func videos() -> UIViewController {
+        let vc: UINavigationController = initialViewControllerForStoryboard(.videos)
+        vc.tabBarItem = App.Tab.videos.tabBarItem
+        return vc
+    }
+    
+    func schedule() -> UIViewController {
+        let vc: UINavigationController = initialViewControllerForStoryboard(.schedule)
+        vc.tabBarItem = App.Tab.schedule.tabBarItem
+        return vc
+    }
+    
+    func news() -> UIViewController {
+        let vc: UINavigationController = initialViewControllerForStoryboard(.news)
+        vc.tabBarItem = App.Tab.news.tabBarItem
+        return vc
+    }
+    
+    func venue() -> UIViewController {
+        let vc: UINavigationController = initialViewControllerForStoryboard(.venue)
+        vc.tabBarItem = App.Tab.venue.tabBarItem
+        return vc
+    }
+}
+
 final class App: TabbedCoordinator {
     
     typealias RootViewController = UITabBarController
@@ -15,12 +53,24 @@ final class App: TabbedCoordinator {
     let window: UIWindow
     
     var rootViewController: UITabBarController
+    var screens: Screens
+    
     
     init(window: UIWindow) {
         self.window = window
         self.rootViewController = UITabBarController()
+        self.screens = Screens()
         
         self.window.rootViewController = self.rootViewController
+        setupTabs()
+    }
+    
+    func setupTabs() {
+        self.rootViewController.setViewControllers(availableTabs(), animated: false)
+    }
+    
+    func availableTabs() -> [UIViewController] {
+        return [screens.videos(), screens.schedule(), screens.news(), screens.venue()]
     }
     
 }
