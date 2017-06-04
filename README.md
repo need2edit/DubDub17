@@ -26,6 +26,38 @@ This is a great example for working with a complex data set, calendars, video, a
 This is a work in progress. Trying to make it happen by the end of WWDC week!
 
 - [ ] Videos Tab
+  - [ ] Listing Videos
+  - [ ] Switching View Controllers between **All** and **Featured**
+    - [ ] Featured Videos View Controller
+      - [ ] Grid Layout using Table and Collection Views
+    - [ ] All Videos View Controller
+      - [ ] List Layout using Table and Collection Views
+      - [ ] Filtering Videos based on Track, Year, etc.
+      - [ ] Searching Videos based on Title, Description
+  - [ ] Viewing Details of a Video
+    - [ ] Playing a Video
+    - [ ] Marking a Video as a **Favorite**
+    - [ ] Providing Feedback on a Video
 - [ ] Schedule Tab
+  - [ ] Listing Sessions
+  - [ ] Switching View Controllers between **All** and **Featured**
+    - [ ] Featured Sessions View Controller
+      - [ ] Grid Layout using Table and Collection Views
+    - [ ] All Sessions View Controller
+      - [ ] List Layout using Table and Collection Views
+      - [ ] Filtering Sessions based on Track, Year, etc.
+      - [ ] Searching Sessions based on Title, Description
+  - [ ] Viewing Details of a Session
+    - [ ] Adding Session to Calendar
+    - [ ] Marking a Session as a **Favorite**
+    - [ ] Providing Feedback on a Session
 - [ ] News Tab
+  - [ ] Listing Announcements
+    - [ ] Announcement Cell
+    - [ ] Gallery Cell
+  - [ ] List Layout using Table and Collection Views
+  - [ ] Filter Announcements based on Type (All, Gallery)
+  - [ ] Image Gallery View Controller
 - [ ] Venue Tab
+  - [ ] Venue Directions & Policy View Controller
+  - [ ] Near By Events View Controller
