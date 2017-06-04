@@ -25,7 +25,7 @@ This is a great example for working with a complex data set, calendars, video, a
 # Todo List
 This is a work in progress. Trying to make it happen by the end of WWDC week!
 
-[ ] Videos Tab
-[ ] Schedule Tab
-[ ] News Tab
-[ ] Venue Tab
+- [ ] Videos Tab
+- [ ] Schedule Tab
+- [ ] News Tab
+- [ ] Venue Tab
