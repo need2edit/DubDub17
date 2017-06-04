@@ -8,57 +8,6 @@
 
 import UIKit
 
-final class Section: NSObject {
-
-    var title: String?
-    var videos: [Video]
-
-    init(title: String?, videos: [Video]) {
-        self.title = title
-        self.videos = videos
-        super.init()
-    }
-}
-
-protocol SectionDelegate {
-    func didSelect(video: Video)
-}
-
-class SectionViewModel: NSObject {
-
-    let currentSection: Section
-    let delegate: SectionDelegate
-
-    init(section: Section, delegate: SectionDelegate) {
-        self.currentSection = section
-        self.delegate = delegate
-        super.init()
-    }
-
-    func numberOfSections() -> Int {
-        return 1
-    }
-
-    func numberOfItemsInSection(_ section: Int) -> Int {
-        return currentSection.videos.count
-    }
-
-    func getItem(at indexPath: IndexPath) -> Video {
-        return currentSection.videos[indexPath.row]
-    }
-
-    func configureCell(_ cell: VideoCell, at indexPath: IndexPath) {
-        cell.backgroundColor  = .white
-        cell.imageView.backgroundColor = .gray
-        cell.textLabel.text = getItem(at: indexPath).name
-    }
-
-    func title() -> String? {
-        return currentSection.title
-    }
-
-}
-
 struct FeaturedViewModel {
 
     var sections: [Section] = [

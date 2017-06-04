@@ -160,7 +160,7 @@ extension Video: CustomStringConvertible {
 }
 
 extension Video: Playable {
-    public var playbackURL: URL {
+    public var mediaURL: URL {
         return assetURL
     }
 }
@@ -175,7 +175,7 @@ extension Video {
             summary: "Lorem ipsum dolor sit amet.",
             track: .featured,
             eventYear: .wwdc2017,
-            assetURL: URL(string: "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4")!
+            assetURL: URL(string: "https://tungsten.aaplimg.com/VOD/bipbop_adv_fmp4_example/master.m3u8")!
         )
     }
     

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class VideoCell: UICollectionViewCell {
+open class VideoCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textLabel: UILabel!
 
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         imageView.layer.cornerRadius = 4.0
     }

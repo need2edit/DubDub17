@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol VideoSelectionDelegate {
-    func didSelect(video: Video)
-}
-
 class ScrollingRowCell: UITableViewCell {
 
     var viewModel: SectionViewModel! {

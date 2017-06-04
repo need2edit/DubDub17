@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol VideoSelectionDelegate {
+    func didSelect(video: Video)
+}
+
 protocol VideosViewControllerDelegate: class {
     func controllerDidSelectAllVideos(_ controller: AllVideosViewController)
     func controllerDidSelectFeaturedVideos(_ controller: FeaturedVideosViewController)

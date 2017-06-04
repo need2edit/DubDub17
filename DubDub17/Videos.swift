@@ -13,6 +13,7 @@ import AVFoundation
 class VideosCoordinator: Coordinator {
 
     var screen: UINavigationController
+    var videoPlayer: AVPlayerViewController?
 
     init(_ screens: Screens) {
         self.screen = screens.videosRoot()
@@ -29,7 +30,7 @@ class VideosCoordinator: Coordinator {
 // MARK: - Showing Video Details
 
 public protocol Playable {
-    var playbackURL: URL { get }
+    var mediaURL: URL { get }
 }
 
 public protocol Sharable {
@@ -38,7 +39,7 @@ public protocol Sharable {
 
 extension Sharable where Self: Playable {
     var sharingURL: URL {
-        return playbackURL
+        return mediaURL
     }
 }
 
@@ -57,12 +58,16 @@ extension VideosCoordinator {
     }
     
     func play<Item: Playable>(_ itemToPlay: Item, from controller: UIViewController?) {
+        
         let context = controller ?? self.screen
         
-        let videosVC = AVPlayerViewController()
-        videosVC.player = AVPlayer(url: itemToPlay.playbackURL)
+        let videosVC = VideoPlayerViewController(itemToPlay: itemToPlay)
+//        controller?.performSegue(withIdentifier: "PlayVideo", sender: nil)
         
-        context.present(videosVC, animated: true, completion: nil)
+        context.present(videosVC, animated: true) {
+            videosVC.play()
+        }
+        
     }
     
     func share(_ item: Playable) {
@@ -110,7 +115,7 @@ extension VideosCoordinator: VideoDetailsViewControllerDelegate {
     }
 
     func favoriteButtonTapped(_ controller: VideoDetailsViewController, video: Video) {
-        play(video, from: nil)
+        play(video, from: controller)
     }
     
 }
