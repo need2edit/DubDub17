@@ -24,7 +24,14 @@ This is a great example for working with a complex data set, calendars, video, a
 
 # Todo List
 This is a work in progress. Trying to make it happen by the end of WWDC week!
-
+- [ ] Setting Up Tabbed Interface
+  - [ ] App Coordinator
+  - [ ] Managing Tabbed Interface
+- [ ] Modeling Our Data
+  - [ ] Videos
+  - [ ] Session
+  - [ ] Announcement
+  - [ ] Account
 - [ ] Videos Tab
   - [ ] Listing Videos
   - [ ] Switching View Controllers between **All** and **Featured**
