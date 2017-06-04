@@ -8,19 +8,6 @@
 
 import UIKit
 
-class VideoDetailsViewModel {
-
-    let video: Video
-
-    init(video: Video) {
-        self.video = video
-    }
-
-    func titleText() -> String {
-        return video
-    }
-}
-
 protocol VideoDetailsViewControllerDelegate {
     func shareButtonTapped(_ controller: VideoDetailsViewController, video: Video)
     func favoriteButtonTapped(_ controller: VideoDetailsViewController, video: Video)

@@ -6,7 +6,9 @@
 //  Copyright © 2017 Jake Young. All rights reserved.
 //
 
-import Foundation
+import AVKit
+import UIKit
+import AVFoundation
 
 class VideosCoordinator: Coordinator {
 
@@ -22,6 +24,53 @@ class VideosCoordinator: Coordinator {
         screen.pushViewController(vc, animated: false)
     }
 
+}
+
+// MARK: - Showing Video Details
+
+public protocol Playable {
+    var playbackURL: URL { get }
+}
+
+public protocol Sharable {
+    var sharingURL: URL { get }
+}
+
+extension Sharable where Self: Playable {
+    var sharingURL: URL {
+        return playbackURL
+    }
+}
+
+extension VideosCoordinator {
+    
+    /// Shows the thumbnail and description information for a given video.
+    ///
+    /// - Parameters:
+    ///   - video: the video you would like to show the details for
+    ///   - controller: a navigation controller to push the details from (we may want this modal in the future)
+    func showDetails(_ video: Video, from controller: UINavigationController?) {
+        let details: VideoDetailsViewController = UIStoryboard.videos.instantiateViewController()
+        details.delegate = self
+        details.viewModel = VideoDetailsViewModel(video: video)
+        controller?.pushViewController(details, animated: true)
+    }
+    
+    func play<Item: Playable>(_ itemToPlay: Item, from controller: UIViewController?) {
+        let context = controller ?? self.screen
+        
+        let videosVC = AVPlayerViewController()
+        videosVC.player = AVPlayer(url: itemToPlay.playbackURL)
+        
+        context.present(videosVC, animated: true, completion: nil)
+    }
+    
+    func share(_ item: Playable) {
+        let objectsToShare = [item]
+        let vc = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        screen.present(vc, animated: true, completion: nil)
+    }
+    
 }
 
 extension VideosCoordinator: VideosViewControllerDelegate {
@@ -46,10 +95,7 @@ extension VideosCoordinator: VideosViewControllerDelegate {
 extension VideosCoordinator: FeaturedVideosViewControllerDelegate {
 
     func featuredControllerDidSelectVideo(_ controller: FeaturedVideosViewController, video: Video) {
-        let details: VideoDetailsViewController = UIStoryboard.videos.instantiateViewController()
-        details.delegate = self
-        details.viewModel = VideoDetailsViewModel(video: video)
-        controller.navigationController?.pushViewController(details, animated: true)
+        showDetails(video, from: controller.navigationController)
     }
 
 }
@@ -60,14 +106,11 @@ extension VideosCoordinator: VideoDetailsViewControllerDelegate {
     // MARK: - Video Details
 
     func shareButtonTapped(_ controller: VideoDetailsViewController, video: Video) {
-        let url = URL(string: "https://www.apple.com/")!
-        let objectsToShare = [url]
-        let vc = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        controller.navigationController?.present(vc, animated: true, completion: nil)
+        share(video)
     }
 
     func favoriteButtonTapped(_ controller: VideoDetailsViewController, video: Video) {
-        
+        play(video, from: nil)
     }
     
 }

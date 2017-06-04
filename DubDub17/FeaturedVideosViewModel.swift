@@ -8,8 +8,6 @@
 
 import UIKit
 
-public typealias Video = String
-
 final class Section: NSObject {
 
     var title: String?
@@ -52,7 +50,7 @@ class SectionViewModel: NSObject {
     func configureCell(_ cell: VideoCell, at indexPath: IndexPath) {
         cell.backgroundColor  = .white
         cell.imageView.backgroundColor = .gray
-        cell.textLabel.text = getItem(at: indexPath)
+        cell.textLabel.text = getItem(at: indexPath).name
     }
 
     func title() -> String? {
@@ -64,34 +62,10 @@ class SectionViewModel: NSObject {
 struct FeaturedViewModel {
 
     var sections: [Section] = [
-        Section(
-            title: "Favorites",
-            videos: ["Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor."]
-        ),
-        Section(
-            title: "Timeless Best Practices",
-            videos: ["Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor."]
-        ),
-        Section(
-            title: "Design Insights",
-            videos: ["Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor.",
-                     "Lorem ipsum dolor."]
-        )
-
+        Section(title: "Featured", videos: Video.defaultData),
+        Section(title: "Timeless Best Practices", videos: Video.defaultData),
+        Section(title: "Design", videos: Video.defaultData),
+        Section(title: "More Stuff", videos: Video.defaultData)
     ]
 
     func numberOfSections() -> Int {
