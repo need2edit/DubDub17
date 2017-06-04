@@ -10,8 +10,8 @@ import UIKit
 
 class Screens {
     
-    func initialViewControllerForStoryboard<A: UIViewController>(_ storyboard: UIStoryboard.Storyboard) -> A {
-        guard let vc = UIStoryboard(storyboard).instantiateInitialViewController() as? A else { fatalError() }
+    func initialViewControllerForStoryboard<A: UIViewController>(_ storyboard: StoryboardIdentifier) -> A {
+        guard let vc = UIStoryboard(identifier: storyboard).instantiateInitialViewController() as? A else { fatalError() }
         return vc
     }
     
@@ -21,7 +21,7 @@ class Screens {
     }
     
     
-    func videos() -> UIViewController {
+    func videosRoot() -> UINavigationController {
         let vc: UINavigationController = initialViewControllerForStoryboard(.videos)
         vc.tabBarItem = App.Tab.videos.tabBarItem
         return vc
@@ -54,23 +54,29 @@ final class App: TabbedCoordinator {
     
     var rootViewController: UITabBarController
     var screens: Screens
-    
+    var videos: VideosCoordinator
     
     init(window: UIWindow) {
         self.window = window
         self.rootViewController = UITabBarController()
         self.screens = Screens()
-        
+
+        self.videos = VideosCoordinator(screens)
         self.window.rootViewController = self.rootViewController
         setupTabs()
     }
     
     func setupTabs() {
         self.rootViewController.setViewControllers(availableTabs(), animated: false)
+        start()
     }
     
     func availableTabs() -> [UIViewController] {
-        return [screens.videos(), screens.schedule(), screens.news(), screens.venue()]
+        return [videos.screen, screens.schedule(), screens.news(), screens.venue()]
+    }
+
+    func start() {
+        videos.start()
     }
     
 }

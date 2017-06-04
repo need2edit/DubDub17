@@ -37,11 +37,11 @@
                         <sections>
                             <tableViewSection id="kHJ-2K-yaw">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressCell" rowHeight="142" id="4U8-tr-1aK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnnouncementCell" rowHeight="142" id="4U8-tr-1aK">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4U8-tr-1aK" id="U3Y-WB-tee">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R5Z-1L-ckH">
@@ -86,11 +86,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressCell" rowHeight="142" id="fND-ZD-PFA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GalleryCell" rowHeight="142" id="fND-ZD-PFA">
                                         <rect key="frame" x="0.0" y="142" width="375" height="142"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fND-ZD-PFA" id="5nU-dV-Zna">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ycr-5g-cTz">

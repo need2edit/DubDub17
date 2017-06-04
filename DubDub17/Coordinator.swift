@@ -30,7 +30,8 @@ protocol TabItem {
 extension TabItem where Self: RawRepresentable, Self.RawValue == Int {
     
     var selectedImage: UIImage? {
-        return nil
+        guard let title = title else { return nil }
+        return UIImage(named: "\(title)Selected")
     }
     
     var selectedIndex: Int {
@@ -85,8 +86,7 @@ class BaseNavigationCoordinator: NavigationCoordinator {
             case .modal: return .pageSheet
             }
         }
-        
-        
+
     }
     
     var style: Style = .modal

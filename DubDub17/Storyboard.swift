@@ -8,18 +8,59 @@
 
 import UIKit
 
+enum StoryboardIdentifier: String {
+    case main
+    case videos
+    case schedule
+    case news
+    case venue
+}
+
+enum ViewController: String {
+    case AllVideosViewController
+    case FeaturedVideosViewController
+    case VideoDetailsViewController
+    
+    func viewControllerClass<A: UIViewController>() -> A {
+        switch self {
+        case .AllVideosViewController: return ViewController.AllVideosViewController as! A
+        case .FeaturedVideosViewController: return ViewController.FeaturedVideosViewController as! A
+        case .VideoDetailsViewController: return ViewController.VideoDetailsViewController as! A
+        }
+    }
+}
+
 extension UIStoryboard {
     
-    enum Storyboard: String {
-        case main
-        case videos
-        case schedule
-        case news
-        case venue
+}
+
+extension UIStoryboard {
+    
+    convenience init(identifier: StoryboardIdentifier) {
+        self.init(name: identifier.rawValue.capitalized, bundle: Bundle.main)
     }
     
-    convenience init(_ storyboard: Storyboard, bundle: Bundle? = nil) {
-        self.init(name: storyboard.rawValue.capitalized, bundle: bundle)
+    func instantiateViewController<A: UIViewController>() -> A {
+        return instantiateViewController(withIdentifier: String(describing: A.self)) as! A
     }
     
+    static var main: UIStoryboard {
+        return UIStoryboard(identifier: .main)
+    }
+    
+    static var videos: UIStoryboard {
+        return UIStoryboard(identifier: .videos)
+    }
+    
+    static var schedule: UIStoryboard {
+        return UIStoryboard(identifier: .schedule)
+    }
+    
+    static var news: UIStoryboard {
+        return UIStoryboard(identifier: .news)
+    }
+    
+    static var venue: UIStoryboard {
+        return UIStoryboard(identifier: .venue)
+    }
 }

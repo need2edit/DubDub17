@@ -1,0 +1,53 @@
+//
+//  VideoDetailsViewController.swift
+//  DubDub17
+//
+//  Created by Jake Young on 6/1/17.
+//  Copyright © 2017 Jake Young. All rights reserved.
+//
+
+import UIKit
+
+class VideoDetailsViewModel {
+
+    let video: Video
+
+    init(video: Video) {
+        self.video = video
+    }
+
+    func titleText() -> String {
+        return video
+    }
+}
+
+protocol VideoDetailsViewControllerDelegate {
+    func shareButtonTapped(_ controller: VideoDetailsViewController, video: Video)
+    func favoriteButtonTapped(_ controller: VideoDetailsViewController, video: Video)
+}
+
+class VideoDetailsViewController: UIViewController {
+
+    var viewModel: VideoDetailsViewModel!
+    var delegate: VideoDetailsViewControllerDelegate?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNavigation()
+    }
+
+    func setupNavigation() {
+        let share = UIBarButtonItem.init(barButtonSystemItem: .action, target: self, action: #selector(VideoDetailsViewController.shareButtonTapped))
+        let favorite = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(VideoDetailsViewController.favoriteButtonTapped))
+        navigationItem.rightBarButtonItems = [share, favorite]
+    }
+
+    func shareButtonTapped() {
+        delegate?.shareButtonTapped(self, video: viewModel.video)
+    }
+
+    func favoriteButtonTapped() {
+        delegate?.favoriteButtonTapped(self, video: viewModel.video)
+    }
+
+}
