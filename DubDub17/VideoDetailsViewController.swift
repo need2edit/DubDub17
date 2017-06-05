@@ -42,15 +42,7 @@ class VideoDetailsViewController: UIViewController, MVVM {
     
     @IBOutlet weak var actionsTableView: UITableView!
     
-    var viewModel: VideoDetailsViewModel! {
-        didSet {
-            updateView()
-        }
-    }
-    
-    func updateView() {
-        
-    }
+    var viewModel: VideoDetailsViewModel!
     
     var delegate: VideoDetailsViewControllerDelegate?
 
