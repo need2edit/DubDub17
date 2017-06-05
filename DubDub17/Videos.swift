@@ -38,7 +38,7 @@ extension VideosCoordinator {
     
     private func setupDetailsViewController(_ viewController: VideoDetailsViewController, with video: Video) {
         viewController.delegate = self
-        viewController.viewModel = VideoDetailsViewModel(video: video)
+        viewController.viewModel = VideoDetailsViewModel(video: video, tintColor: Theme.shared.primaryColor)
     }
     
     /// Shows the thumbnail and description information for a given video.
@@ -72,9 +72,12 @@ extension VideosCoordinator {
         
     }
     
-    func share(_ item: Playable) {
+    func share(_ item: Playable, barButtonItem: UIBarButtonItem?) {
+        
         let objectsToShare = [item]
         let vc = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        vc.popoverPresentationController?.barButtonItem = barButtonItem
+        
         screen.present(vc, animated: true, completion: nil)
     }
     
@@ -112,7 +115,7 @@ extension VideosCoordinator: VideoDetailsViewControllerDelegate {
     // MARK: - Video Details
 
     func shareButtonTapped(_ controller: VideoDetailsViewController, video: Video) {
-        share(video)
+        share(video, barButtonItem: controller.navigationItem.rightBarButtonItem)
     }
 
     func favoriteButtonTapped(_ controller: VideoDetailsViewController, video: Video) {

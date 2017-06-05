@@ -192,27 +192,37 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11P-ha-zKc">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qEw-eq-c8Q">
                                         <rect key="frame" x="0.0" y="676" width="320" height="132"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="132" id="bRg-5Y-TaN"/>
+                                            <constraint firstAttribute="height" constant="132" id="nOL-og-Z1o"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="cmH-0R-aD1" kind="embed" identifier="EmbedActions" id="IFS-eb-G4K"/>
+                                            <outlet property="dataSource" destination="YgT-Tk-zdK" id="3iQ-Ad-7Ly"/>
+                                            <outlet property="delegate" destination="YgT-Tk-zdK" id="uAb-g3-PnL"/>
                                         </connections>
-                                    </containerView>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EP-4w-HF0">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="PlayButton"/>
+                                        <connections>
+                                            <action selector="playButtonTapped" destination="YgT-Tk-zdK" eventType="touchUpInside" id="PkQ-sv-HPB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Xn1-0q-2w9" firstAttribute="width" secondItem="oDW-Uv-JfK" secondAttribute="width" id="5ic-l1-jzd"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="11P-ha-zKc" secondAttribute="trailing" constant="-8" id="8ac-TL-20Z"/>
                                     <constraint firstItem="Xn1-0q-2w9" firstAttribute="leading" secondItem="oDW-Uv-JfK" secondAttribute="leadingMargin" constant="-8" id="B3m-fa-5Q3"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="Xn1-0q-2w9" secondAttribute="trailing" constant="-8" id="DS5-Xa-hwZ"/>
-                                    <constraint firstItem="11P-ha-zKc" firstAttribute="leading" secondItem="oDW-Uv-JfK" secondAttribute="leadingMargin" constant="-8" id="FZV-NB-dnh"/>
-                                    <constraint firstAttribute="bottom" secondItem="11P-ha-zKc" secondAttribute="bottom" constant="2.5" id="IEy-VY-2Hm"/>
+                                    <constraint firstItem="qEw-eq-c8Q" firstAttribute="leading" secondItem="oDW-Uv-JfK" secondAttribute="leading" id="Jzo-5w-Td0"/>
                                     <constraint firstItem="b4b-Ew-d9w" firstAttribute="leading" secondItem="oDW-Uv-JfK" secondAttribute="leading" constant="8" id="TTX-VF-Omw"/>
+                                    <constraint firstItem="qEw-eq-c8Q" firstAttribute="top" secondItem="b4b-Ew-d9w" secondAttribute="bottom" constant="8" id="WwC-vp-9tl"/>
                                     <constraint firstItem="b4b-Ew-d9w" firstAttribute="top" secondItem="Xn1-0q-2w9" secondAttribute="bottom" constant="8" id="YV6-0M-hFO"/>
-                                    <constraint firstItem="11P-ha-zKc" firstAttribute="top" secondItem="b4b-Ew-d9w" secondAttribute="bottom" constant="7.5" id="evQ-MH-cq5"/>
                                     <constraint firstAttribute="trailing" secondItem="b4b-Ew-d9w" secondAttribute="trailing" constant="8" id="k9b-hw-flq"/>
+                                    <constraint firstAttribute="trailing" secondItem="qEw-eq-c8Q" secondAttribute="trailing" id="lN5-TU-vBj"/>
+                                    <constraint firstAttribute="bottom" secondItem="qEw-eq-c8Q" secondAttribute="bottom" id="mN8-vi-T8U"/>
                                     <constraint firstItem="Xn1-0q-2w9" firstAttribute="top" secondItem="oDW-Uv-JfK" secondAttribute="topMargin" constant="-8" id="uRX-Ei-5di"/>
                                 </constraints>
                             </scrollView>
@@ -228,6 +238,7 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="900"/>
                     <connections>
+                        <outlet property="actionsTableView" destination="qEw-eq-c8Q" id="7Cn-LB-m6P"/>
                         <outlet property="descriptionTextLabel" destination="u5G-KH-Ys9" id="dF3-8r-MZ5"/>
                         <outlet property="imageView" destination="Xn1-0q-2w9" id="WR3-cc-jBl"/>
                         <outlet property="metaTextLabel" destination="Gfq-Bw-Dz1" id="WvZ-Q0-oSm"/>
@@ -237,84 +248,7 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ily-e4-YgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="1750"/>
-        </scene>
-        <!--Video Actions View Controller-->
-        <scene sceneID="3Ek-6L-Qfh">
-            <objects>
-                <tableViewController storyboardIdentifier="VideoActions" id="cmH-0R-aD1" customClass="VideoActionsViewController" customModule="DubDub17" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="psY-fx-ubc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="Uqx-tZ-lib">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WatchedCell" textLabel="ChN-58-mFt" style="IBUITableViewCellStyleDefault" id="8VU-Wm-BMS">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8VU-Wm-BMS" id="DND-0f-ohy">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Mark as Unwatched" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ChN-58-mFt">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.89248496290000001" green="0.03092195839" blue="0.089410848919999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DownloadCell" textLabel="rOn-n8-tEd" style="IBUITableViewCellStyleDefault" id="AUc-Xn-7IQ">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AUc-Xn-7IQ" id="tVz-MM-BYm">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Download Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rOn-n8-tEd">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.89248496290000001" green="0.03092195839" blue="0.089410848919999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedbackCell" textLabel="aWf-bh-x9G" style="IBUITableViewCellStyleDefault" id="Azd-N6-vRX">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Azd-N6-vRX" id="RJm-0j-L7c">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Leave Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aWf-bh-x9G">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.89248496290000001" green="0.03092195839" blue="0.089410848919999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="cmH-0R-aD1" id="lUk-17-sL6"/>
-                            <outlet property="delegate" destination="cmH-0R-aD1" id="GzR-Tb-og1"/>
-                        </connections>
-                    </tableView>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="132"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LUs-ch-WAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1846" y="1335"/>
+            <point key="canvasLocation" x="1036.8" y="1749.6251874062971"/>
         </scene>
         <!--Featured-->
         <scene sceneID="jjx-fK-KyS">
@@ -499,7 +433,7 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="82"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Improving Existing Apps with Modern Best Practices" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSB-Ll-FAh">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="67"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="317.5" height="67"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -529,15 +463,17 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="552" id="QQo-4f-NS6"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQi-bk-iFb">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PtN-RN-QTW">
                                                         <rect key="frame" x="0.0" y="97" width="133.5" height="132"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="132" id="h4d-0h-DAG"/>
+                                                            <constraint firstAttribute="height" constant="132" id="qS2-PR-BRm"/>
                                                         </constraints>
                                                         <connections>
-                                                            <segue destination="cmH-0R-aD1" kind="embed" identifier="EmbedActions" id="ays-i2-BhG"/>
+                                                            <outlet property="dataSource" destination="YgT-Tk-zdK" id="WlA-Bc-Gg0"/>
+                                                            <outlet property="delegate" destination="YgT-Tk-zdK" id="ewJ-4R-aoP"/>
                                                         </connections>
-                                                    </containerView>
+                                                    </tableView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="skl-WF-T4Q">
@@ -575,15 +511,27 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMn-rF-eM0">
+                                <rect key="frame" x="32" y="154" width="133.5" height="75"/>
+                                <state key="normal" backgroundImage="PlayButton"/>
+                                <connections>
+                                    <action selector="playButtonTapped" destination="Thl-Sw-YLz" eventType="touchUpInside" id="uOU-s7-SzB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="4Qb-GF-X9j" secondAttribute="trailing" id="3ag-4O-0ml"/>
+                            <constraint firstItem="hMn-rF-eM0" firstAttribute="height" secondItem="Icv-bv-vsb" secondAttribute="height" id="HXU-kk-Na7"/>
+                            <constraint firstItem="hMn-rF-eM0" firstAttribute="centerY" secondItem="Icv-bv-vsb" secondAttribute="centerY" id="MCv-sA-Utf"/>
                             <constraint firstItem="4Qb-GF-X9j" firstAttribute="leading" secondItem="IKm-tZ-Pjk" secondAttribute="leadingMargin" constant="16" id="Rrc-vH-eT0"/>
+                            <constraint firstItem="hMn-rF-eM0" firstAttribute="centerX" secondItem="Icv-bv-vsb" secondAttribute="centerX" id="Yjh-BH-4sA"/>
                             <constraint firstItem="4Qb-GF-X9j" firstAttribute="top" secondItem="zuc-un-eut" secondAttribute="bottom" constant="16" id="eh0-Hv-bDG"/>
+                            <constraint firstItem="hMn-rF-eM0" firstAttribute="width" secondItem="Icv-bv-vsb" secondAttribute="width" id="man-sD-Om7"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionsTableView" destination="PtN-RN-QTW" id="X5U-6m-GVp"/>
                         <outlet property="descriptionTextLabel" destination="Kbw-qA-EtZ" id="Oc4-I1-Jhb"/>
                         <outlet property="imageView" destination="Icv-bv-vsb" id="6Qr-ic-tF7"/>
                         <outlet property="metaTextLabel" destination="faI-yd-yvR" id="NNc-Hu-63O"/>
@@ -597,9 +545,7 @@ The best way to avoid technical debt is to incrementally build-up technical cred
         </scene>
     </scenes>
     <resources>
+        <image name="PlayButton" width="734" height="413"/>
         <image name="Thumbnail" width="734" height="413"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ays-i2-BhG"/>
-    </inferredMetricsTieBreakers>
 </document>

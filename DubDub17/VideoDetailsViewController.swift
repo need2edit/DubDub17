@@ -17,32 +17,10 @@ protocol VideoDetailsViewControllerDelegate {
     func leaveFeedbackRowSelected(_ controller: VideoDetailsViewController, video: Video)
 }
 
-internal protocol VideoActionsViewControllerDelegate {
-    func markAsWatchedRowSelected(_ controller: VideoActionsViewController, video: Video)
-    func downloadVideoRowSelected(_ controller: VideoActionsViewController, video: Video)
-    func leaveFeedbackRowSelected(_ controller: VideoActionsViewController, video: Video)
-}
-
 class iPhoneVideoDetailsViewController: VideoDetailsViewController { }
 class iPadVideoDetailsViewController: VideoDetailsViewController { }
 
-class VideoDetailsViewController: UIViewController, VideoActionsViewControllerDelegate {
-    
-    func leaveFeedbackRowSelected(_ controller: VideoActionsViewController, video: Video) {
-        print(#function)
-        delegate?.leaveFeedbackRowSelected(self, video: video)
-    }
-
-    func downloadVideoRowSelected(_ controller: VideoActionsViewController, video: Video) {
-        print(#function)
-        delegate?.downloadVideoRowSelected(self, video: video)
-    }
-
-    func markAsWatchedRowSelected(_ controller: VideoActionsViewController, video: Video) {
-        print(#function)
-        delegate?.markAsWatchedRowSelected(self, video: video)
-    }
-
+class VideoDetailsViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextLabel: UILabel!
@@ -50,12 +28,18 @@ class VideoDetailsViewController: UIViewController, VideoActionsViewControllerDe
     @IBOutlet weak var metaTextLabel: UILabel!
     @IBOutlet weak var descriptionTextLabel: UILabel!
     
+    @IBOutlet weak var actionsTableView: UITableView!
+    
     var viewModel: VideoDetailsViewModel!
     var delegate: VideoDetailsViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        
+        actionsTableView.dataSource = self
+        actionsTableView.delegate = self
+        actionsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ActionCell")
     }
     
     var isFavorite: Bool = false {
@@ -80,15 +64,15 @@ class VideoDetailsViewController: UIViewController, VideoActionsViewControllerDe
         navigationItem.rightBarButtonItems = [shareBarButtonItem, favoriteBarButtonItem]
     }
 
-    func shareButtonTapped() {
+    @IBAction func shareButtonTapped() {
         delegate?.shareButtonTapped(self, video: viewModel.video)
     }
 
-    func favoriteButtonTapped() {
+    @IBAction func favoriteButtonTapped() {
         delegate?.favoriteButtonTapped(self, video: viewModel.video)
     }
     
-    func playButtonTapped() {
+    @IBAction func playButtonTapped() {
         delegate?.playVideoButtonTapped(self, video: viewModel.video)
     }
     
@@ -96,92 +80,27 @@ class VideoDetailsViewController: UIViewController, VideoActionsViewControllerDe
         isFavorite = !isFavorite
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let actions = segue.destination as? VideoActionsViewController, let identifier = segue.identifier, identifier == "EmbedActions" {
-            actions.delegate = self
-            actions.video = viewModel.video
-        }
-    }
-    
-    
 }
 
-
-// TODO: Formalize this with a view model / state machine
-class VideoActionsViewController: UITableViewController {
+extension VideoDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     
-    var video: Video?
-    public var delegate: VideoActionsViewControllerDelegate? {
-        didSet {
-            print("actions delegate set")
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ActionCell")
-        tableView.delegate = self
-    }
-    
-    enum Action: CustomStringConvertible {
-        case watched
-        case download
-        case feedback
-        
-        var description: String {
-            switch self {
-            case .watched:
-                return "Mark as Unwatched"
-            case .download:
-                return "Download Video"
-            case .feedback:
-                return "Leave Feedback"
-            }
-        }
-    }
-    
-    var actions: [Action] = [
-        .watched,
-        .download,
-        .feedback
-    ]
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actions.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfActions()
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActionCell", for: indexPath)
-        configureCell(cell, at: indexPath)
+        viewModel.configureCell(cell, at: indexPath)
         return cell
     }
     
-    func configureCell(_ cell: UITableViewCell, at indexPath: IndexPath) {
-        let action = actions[indexPath.row]
-        cell.textLabel?.text = action.description
-        cell.textLabel?.textColor = self.view.tintColor
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        guard let video = video else { return }
-        
-        switch (indexPath.section, indexPath.row) {
-        case (0, let row) where row == 0:
-            delegate?.markAsWatchedRowSelected(self, video: video)
-        case (0, let row) where row == 1:
-            delegate?.downloadVideoRowSelected(self, video: video)
-        case (0, let row) where row == 2:
-            delegate?.leaveFeedbackRowSelected(self, video: video)
-        default:
-            return
-        }
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let delegate = self.delegate else { return }
+        viewModel.selectVideo(at: indexPath, using: delegate, controller: self)
     }
     
 }
-

@@ -23,7 +23,7 @@ final class App: TabbedCoordinator {
         self.window = window
         self.rootViewController = UITabBarController()
         self.screens = Screens()
-        self.theme = Theme(primaryColor: #colorLiteral(red: 0.8411678672, green: 0.1864320636, blue: 0.2944164276, alpha: 1))
+        self.theme = Theme.shared
         self.videos = VideosCoordinator(screens)
         
         self.window.rootViewController = self.rootViewController
