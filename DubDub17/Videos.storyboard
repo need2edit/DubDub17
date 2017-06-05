@@ -15,7 +15,7 @@
         <!--Navigation Controller-->
         <scene sceneID="PbN-Zn-y6q">
             <objects>
-                <navigationController id="PZY-NP-eTj" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="VideosRoot" id="PZY-NP-eTj" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YuZ-yq-cpP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -586,6 +586,6 @@ The best way to avoid technical debt is to incrementally build-up technical cred
         <image name="Thumbnail" width="734" height="413"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IFS-eb-G4K"/>
+        <segue reference="ays-i2-BhG"/>
     </inferredMetricsTieBreakers>
 </document>

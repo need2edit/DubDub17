@@ -10,6 +10,13 @@ import AVKit
 import UIKit
 import AVFoundation
 
+/** Videos coordinator will have a starting screen as a UINavigationController.
+ *
+ * This coordinator is in charge of: 
+ * - pushing the details of a video on to the screen.
+ * - switching between all and featured child view controllers
+ * - showing or hiding the filters and search popups
+ */
 class VideosCoordinator: Coordinator {
 
     var screen: UINavigationController
@@ -45,7 +52,7 @@ extension Sharable where Self: Playable {
 
 extension VideosCoordinator {
     
-    private func setupDetails(_ viewController: VideoDetailsViewController, with video: Video) {
+    private func setupDetailsViewController(_ viewController: VideoDetailsViewController, with video: Video) {
         viewController.delegate = self
         viewController.viewModel = VideoDetailsViewModel(video: video)
     }
@@ -59,21 +66,21 @@ extension VideosCoordinator {
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             let details: iPadVideoDetailsViewController = UIStoryboard.videos.instantiateViewController()
-            setupDetails(details, with: video)
+            setupDetailsViewController(details, with: video)
             controller?.pushViewController(details, animated: true)
         } else {
             let details: iPhoneVideoDetailsViewController = UIStoryboard.videos.instantiateViewController()
-            setupDetails(details, with: video)
+            setupDetailsViewController(details, with: video)
             controller?.pushViewController(details, animated: true)
         }
     }
     
     func play<Item: Playable>(_ itemToPlay: Item, from controller: UIViewController?) {
         
+        // We need something to present from, typically you want to do this on a root controller
         let context = controller ?? self.screen
         
         let videosVC = VideoPlayerViewController(itemToPlay: itemToPlay)
-//        controller?.performSegue(withIdentifier: "PlayVideo", sender: nil)
         
         context.present(videosVC, animated: true) {
             videosVC.play()
