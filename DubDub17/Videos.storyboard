@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PZY-NP-eTj">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +34,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Df9-IZ-8sb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gmO-it-qZz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -64,22 +65,22 @@
             <objects>
                 <tableViewController storyboardIdentifier="AllVideosViewController" title="All" id="QdM-rK-yXQ" customClass="AllVideosViewController" customModule="DubDub17" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZHg-uI-afi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoCell" rowHeight="60" id="QP3-Vh-AGc">
-                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="28" width="1024" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QP3-Vh-AGc" id="KPq-OH-flM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NG5-kh-L5r">
-                                            <rect key="frame" x="15" y="10" width="352" height="38"/>
+                                            <rect key="frame" x="15" y="10" width="1001" height="38"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9BA-e7-23g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="308" height="38"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="957" height="38"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="2c9-dk-N5L">
                                                             <rect key="frame" x="0.0" y="0.0" width="66" height="38"/>
@@ -90,7 +91,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcZ-BO-aRV">
-                                                            <rect key="frame" x="74" y="0.0" width="234" height="38"/>
+                                                            <rect key="frame" x="74" y="0.0" width="883" height="38"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -98,7 +99,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LF0-8S-ihX">
-                                                    <rect key="frame" x="308" y="0.0" width="44" height="38"/>
+                                                    <rect key="frame" x="957" y="0.0" width="44" height="38"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="QCe-VY-l9V"/>
                                                         <constraint firstAttribute="height" constant="38" id="qBH-4c-iNB"/>
@@ -132,132 +133,133 @@
             <point key="canvasLocation" x="1620" y="63"/>
         </scene>
         <!--Video Details View Controller-->
-        <scene sceneID="Pet-4Q-Nha">
+        <scene sceneID="IOx-JZ-WBJ">
             <objects>
-                <viewController storyboardIdentifier="VideoDetailsViewController" id="Lch-24-eYY" customClass="VideoDetailsViewController" customModule="DubDub17" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoDetailsViewController" id="YgT-Tk-zdK" customClass="VideoDetailsViewController" customModule="DubDub17" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qOh-tp-Xxr"/>
-                        <viewControllerLayoutGuide type="bottom" id="6Kb-hN-je1"/>
+                        <viewControllerLayoutGuide type="top" id="1YV-yg-L3C"/>
+                        <viewControllerLayoutGuide type="bottom" id="cLy-FT-ugn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EA3-Fe-AmH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                    <view key="view" contentMode="scaleToFill" id="IJy-RI-Kdb">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MdT-7M-MMc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="sVB-fw-jIl">
+                                <rect key="frame" x="36" y="36" width="968" height="468"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="pOP-O7-4y0">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="pOP-O7-4y0" secondAttribute="height" multiplier="375:217" id="3pI-13-zZV"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fkP-VO-GDB">
-                                        <rect key="frame" x="16" y="231" width="343" height="631.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hFf-XW-CFJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="968" height="48.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nLd-Jv-u9e">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="631.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Improving Existing Apps with Modern Best Practices" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzB-cD-MHF">
+                                                <rect key="frame" x="0.0" y="0.0" width="719.5" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i70-Id-Wgx">
+                                                <rect key="frame" x="0.0" y="47.5" width="968" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="NOj-EL-IP7"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="i70-Id-Wgx" firstAttribute="width" secondItem="hFf-XW-CFJ" secondAttribute="width" id="OdB-Ha-DSn"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="kYU-yb-YWW">
+                                        <rect key="frame" x="0.0" y="84.5" width="968" height="383.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="cER-sA-cpU">
+                                                <rect key="frame" x="0.0" y="0.0" width="408" height="383.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="W6L-UL-55o">
+                                                        <rect key="frame" x="0.0" y="0.0" width="408" height="229.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="552" id="Vxh-I4-9BJ"/>
+                                                            <constraint firstAttribute="width" secondItem="W6L-UL-55o" secondAttribute="height" multiplier="16:9" id="nui-qd-rlt"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="to9-vw-7oa">
+                                                        <rect key="frame" x="0.0" y="251.5" width="408" height="132"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="132" id="A6e-CU-hHR"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <segue destination="cmH-0R-aD1" kind="embed" id="fyk-E3-hsK"/>
+                                                        </connections>
+                                                    </containerView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="s6H-iA-Qga">
+                                                <rect key="frame" x="424" y="0.0" width="544" height="59.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="4rm-sc-UuX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="341" height="146.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="196.5" height="43.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Improving Existing Apps with Modern Best Practices" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzB-cD-MHF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="341" height="100.5"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWDC 2016 | Session 505" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQQ-e3-ntn">
-                                                                <rect key="frame" x="0.0" y="106.5" width="174.5" height="17"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="196.5" height="19.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Frameworks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvz-6V-yzV">
-                                                                <rect key="frame" x="0.0" y="129.5" width="111.5" height="17"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                                <rect key="frame" x="0.0" y="25.5" width="118.5" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.2392156869" green="0.67450982329999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duw-c2-iQZ">
-                                                        <rect key="frame" x="0.0" y="162.5" width="343" height="325"/>
-                                                        <string key="text">
-The best way to avoid technical debt is to incrementally build-up technical credit. This session builds on last year's Modernizing Existing Apps with Swift presentation to show you how you can continue modernizing your codebase while adopting best practices and adding new feature work.
-
-The best way to avoid technical debt is to incrementally build-up technical credit. This session builds on last year's Modernizing Existing Apps with Swift presentation to show you how you can continue modernizing your codebase while adopting best practices and adding new feature work.</string>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="544" height="0.0"/>
+                                                        <string key="text">The best way to avoid technical debt is to incrementally build-up technical credit. This session builds on last year's Modernizing Existing Apps with Swift presentation to show you how you can continue modernizing your codebase while adopting best practices and adding new feature work.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zan-WH-fdB">
-                                                        <rect key="frame" x="0.0" y="503.5" width="343" height="128"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="128" id="LAL-Ru-qgt"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <segue destination="cmH-0R-aD1" kind="embed" identifier="VideoActions" id="ksG-dB-ocD"/>
-                                                        </connections>
-                                                    </containerView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="zan-WH-fdB" firstAttribute="width" secondItem="nLd-Jv-u9e" secondAttribute="width" id="aCU-iX-9bM"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="cER-sA-cpU" firstAttribute="width" secondItem="s6H-iA-Qga" secondAttribute="width" multiplier="0.75" id="i53-Kd-yki"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="pOP-O7-4y0" firstAttribute="leading" secondItem="MdT-7M-MMc" secondAttribute="leading" id="2BV-nS-7EN"/>
-                                    <constraint firstItem="pOP-O7-4y0" firstAttribute="width" secondItem="MdT-7M-MMc" secondAttribute="width" id="9b7-LZ-aZ2"/>
-                                    <constraint firstItem="pOP-O7-4y0" firstAttribute="top" secondItem="MdT-7M-MMc" secondAttribute="top" id="GXB-8A-Zpw"/>
-                                    <constraint firstAttribute="trailing" secondItem="pOP-O7-4y0" secondAttribute="trailing" id="ICL-sm-pab"/>
-                                    <constraint firstAttribute="bottom" secondItem="fkP-VO-GDB" secondAttribute="bottom" id="TW5-5u-zya"/>
-                                    <constraint firstItem="fkP-VO-GDB" firstAttribute="top" secondItem="pOP-O7-4y0" secondAttribute="bottom" constant="14" id="nq8-2c-m9R"/>
-                                    <constraint firstItem="fkP-VO-GDB" firstAttribute="leading" secondItem="MdT-7M-MMc" secondAttribute="leading" constant="16" id="wEX-nF-Vh7"/>
-                                    <constraint firstAttribute="trailing" secondItem="fkP-VO-GDB" secondAttribute="trailing" constant="16" id="zUy-gv-yl7"/>
-                                </constraints>
-                            </scrollView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MdT-7M-MMc" firstAttribute="top" secondItem="qOh-tp-Xxr" secondAttribute="bottom" constant="-20" id="UhK-AD-MYj"/>
-                            <constraint firstItem="MdT-7M-MMc" firstAttribute="leading" secondItem="EA3-Fe-AmH" secondAttribute="leading" id="gmn-aw-D1P"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="MdT-7M-MMc" secondAttribute="bottom" id="sgC-Ci-mKg"/>
-                            <constraint firstItem="MdT-7M-MMc" firstAttribute="top" secondItem="EA3-Fe-AmH" secondAttribute="topMargin" id="uBx-pt-dPp"/>
-                            <constraint firstAttribute="trailing" secondItem="MdT-7M-MMc" secondAttribute="trailing" id="xVV-Kz-Smh"/>
+                            <constraint firstItem="sVB-fw-jIl" firstAttribute="leading" secondItem="IJy-RI-Kdb" secondAttribute="leadingMargin" constant="16" id="ePI-Gy-Y5X"/>
+                            <constraint firstItem="sVB-fw-jIl" firstAttribute="top" secondItem="1YV-yg-L3C" secondAttribute="bottom" constant="16" id="vxa-xy-wsr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sVB-fw-jIl" secondAttribute="trailing" id="ze1-7H-mv0"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1200"/>
-                    <connections>
-                        <segue destination="J4L-vW-2A8" kind="presentation" identifier="PlayVideo" id="Eoa-gK-YsX"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iKf-N6-aTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ily-e4-YgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2362" y="302"/>
+            <point key="canvasLocation" x="2269" y="63"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="3Ek-6L-Qfh">
             <objects>
                 <tableViewController id="cmH-0R-aD1" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="psY-fx-ubc">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="128"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="psY-fx-ubc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="Uqx-tZ-lib">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WatchedCell" textLabel="ChN-58-mFt" style="IBUITableViewCellStyleDefault" id="8VU-Wm-BMS">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8VU-Wm-BMS" id="DND-0f-ohy">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Mark as Unwatched" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ChN-58-mFt">
-                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.89248496290000001" green="0.03092195839" blue="0.089410848919999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -267,14 +269,14 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DownloadCell" textLabel="rOn-n8-tEd" style="IBUITableViewCellStyleDefault" id="AUc-Xn-7IQ">
-                                        <rect key="frame" x="0.0" y="44" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AUc-Xn-7IQ" id="tVz-MM-BYm">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Download Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rOn-n8-tEd">
-                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.89248496290000001" green="0.03092195839" blue="0.089410848919999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -284,14 +286,14 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedbackCell" textLabel="aWf-bh-x9G" style="IBUITableViewCellStyleDefault" id="Azd-N6-vRX">
-                                        <rect key="frame" x="0.0" y="88" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Azd-N6-vRX" id="RJm-0j-L7c">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Leave Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aWf-bh-x9G">
-                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.89248496290000001" green="0.03092195839" blue="0.089410848919999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -308,10 +310,12 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                             <outlet property="delegate" destination="cmH-0R-aD1" id="GzR-Tb-og1"/>
                         </connections>
                     </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="132"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUs-ch-WAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3119" y="302"/>
+            <point key="canvasLocation" x="2108" y="542"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Vtr-tl-CZO">
@@ -322,11 +326,11 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                         <viewControllerLayoutGuide type="bottom" id="i5H-Cw-ps6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WXT-gF-YPh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbc-oI-B9g">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <connections>
                                     <segue destination="8CH-pd-lM8" kind="embed" id="9GL-C5-fzW"/>
                                 </connections>
@@ -358,19 +362,19 @@ The best way to avoid technical debt is to incrementally build-up technical cred
             <objects>
                 <tableViewController storyboardIdentifier="FeaturedVideosViewController" title="Featured" id="8Hx-od-qQ3" customClass="FeaturedVideosViewController" customModule="DubDub17" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="X0y-8X-8m5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideosCell" rowHeight="200" id="QDX-PD-LIa" customClass="ScrollingRowCell" customModule="DubDub17" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="1024" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QDX-PD-LIa" id="fyH-rt-rld">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uye-nZ-U33">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="199.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="e9O-77-KPH">
                                                 <size key="itemSize" width="260" height="200"/>
@@ -380,7 +384,7 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                             </collectionViewFlowLayout>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="hr9-Yd-qbO" customClass="VideoCell" customModule="DubDub17" customModuleProvider="target">
-                                                    <rect key="frame" x="57.5" y="0.0" width="260" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                         <rect key="frame" x="0.0" y="0.0" width="260" height="200"/>
@@ -435,14 +439,14 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoritesCell" rowHeight="200" id="xb9-W0-uAs" customClass="ScrollingRowCell" customModule="DubDub17" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="228" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="228" width="1024" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xb9-W0-uAs" id="BUM-XA-X3x">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ulg-Kc-w2h">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="199.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="feN-rw-DIM">
                                                 <size key="itemSize" width="126" height="216"/>
