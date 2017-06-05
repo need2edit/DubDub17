@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class VideoDetailsViewModel {
+public class VideoDetailsViewModel: ViewModel {
     
     enum Action: CustomStringConvertible {
         case watched

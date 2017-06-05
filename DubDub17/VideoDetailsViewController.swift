@@ -20,7 +20,7 @@ protocol VideoDetailsViewControllerDelegate {
 class iPhoneVideoDetailsViewController: VideoDetailsViewController { }
 class iPadVideoDetailsViewController: VideoDetailsViewController { }
 
-class VideoDetailsViewController: UIViewController {
+class VideoDetailsViewController: UIViewController, MVVM {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextLabel: UILabel!
@@ -30,7 +30,16 @@ class VideoDetailsViewController: UIViewController {
     
     @IBOutlet weak var actionsTableView: UITableView!
     
-    var viewModel: VideoDetailsViewModel!
+    var viewModel: VideoDetailsViewModel! {
+        didSet {
+            updateView()
+        }
+    }
+    
+    func updateView() {
+        
+    }
+    
     var delegate: VideoDetailsViewControllerDelegate?
 
     override func viewDidLoad() {

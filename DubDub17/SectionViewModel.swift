@@ -24,7 +24,7 @@ public protocol SectionDelegate {
     func didSelect(video: Video)
 }
 
-public class SectionViewModel: NSObject {
+public class SectionViewModel: NSObject, ViewModel {
     
     let currentSection: Section
     let delegate: SectionDelegate

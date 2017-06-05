@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct FeaturedViewModel {
+struct FeaturedViewModel: ViewModel {
 
     var sections: [Section] = [
         Section(title: "Featured", videos: Video.defaultData),
