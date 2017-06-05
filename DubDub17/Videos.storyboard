@@ -73,7 +73,7 @@
                                 <rect key="frame" x="0.0" y="28" width="1024" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QP3-Vh-AGc" id="KPq-OH-flM">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NG5-kh-L5r">
@@ -132,113 +132,105 @@
             </objects>
             <point key="canvasLocation" x="1620" y="63"/>
         </scene>
-        <!--Video Details View Controller-->
+        <!--iPhone Video Details View Controller-->
         <scene sceneID="IOx-JZ-WBJ">
             <objects>
-                <viewController storyboardIdentifier="VideoDetailsViewController" id="YgT-Tk-zdK" customClass="VideoDetailsViewController" customModule="DubDub17" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="iPhoneVideoDetailsViewController" id="YgT-Tk-zdK" customClass="iPhoneVideoDetailsViewController" customModule="DubDub17" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1YV-yg-L3C"/>
                         <viewControllerLayoutGuide type="bottom" id="cLy-FT-ugn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IJy-RI-Kdb">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="sVB-fw-jIl">
-                                <rect key="frame" x="36" y="36" width="968" height="468"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDW-Uv-JfK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hFf-XW-CFJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="968" height="48.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Improving Existing Apps with Modern Best Practices" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzB-cD-MHF">
-                                                <rect key="frame" x="0.0" y="0.0" width="719.5" height="33.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i70-Id-Wgx">
-                                                <rect key="frame" x="0.0" y="47.5" width="968" height="1"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="NOj-EL-IP7"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="Xn1-0q-2w9">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
                                         <constraints>
-                                            <constraint firstItem="i70-Id-Wgx" firstAttribute="width" secondItem="hFf-XW-CFJ" secondAttribute="width" id="OdB-Ha-DSn"/>
+                                            <constraint firstAttribute="width" secondItem="Xn1-0q-2w9" secondAttribute="height" multiplier="320:171" id="9Gw-ue-V3O"/>
                                         </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="kYU-yb-YWW">
-                                        <rect key="frame" x="0.0" y="84.5" width="968" height="383.5"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="b4b-Ew-d9w">
+                                        <rect key="frame" x="8" y="179" width="304" height="489"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="cER-sA-cpU">
-                                                <rect key="frame" x="0.0" y="0.0" width="408" height="383.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vYr-8a-D0R">
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="88.5"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="W6L-UL-55o">
-                                                        <rect key="frame" x="0.0" y="0.0" width="408" height="229.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="552" id="Vxh-I4-9BJ"/>
-                                                            <constraint firstAttribute="width" secondItem="W6L-UL-55o" secondAttribute="height" multiplier="16:9" id="nui-qd-rlt"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="to9-vw-7oa">
-                                                        <rect key="frame" x="0.0" y="251.5" width="408" height="132"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="132" id="A6e-CU-hHR"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <segue destination="cmH-0R-aD1" kind="embed" id="fyk-E3-hsK"/>
-                                                        </connections>
-                                                    </containerView>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="s6H-iA-Qga">
-                                                <rect key="frame" x="424" y="0.0" width="544" height="59.5"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="4rm-sc-UuX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="196.5" height="43.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWDC 2016 | Session 505" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQQ-e3-ntn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="196.5" height="19.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Frameworks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvz-6V-yzV">
-                                                                <rect key="frame" x="0.0" y="25.5" width="118.5" height="18"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                                <color key="textColor" red="0.2392156869" green="0.67450982329999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duw-c2-iQZ">
-                                                        <rect key="frame" x="0.0" y="59.5" width="544" height="0.0"/>
-                                                        <string key="text">The best way to avoid technical debt is to incrementally build-up technical credit. This session builds on last year's Modernizing Existing Apps with Swift presentation to show you how you can continue modernizing your codebase while adopting best practices and adding new feature work.</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Improving Existing Apps with Modern Best Practices" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jae-9j-XEn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="304" height="45.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWDC 2016 | Session 505" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AR-iL-Baj">
+                                                        <rect key="frame" x="0.0" y="49.5" width="304" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Frameworks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfq-Bw-Dz1">
+                                                        <rect key="frame" x="0.0" y="71.5" width="304" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <color key="textColor" red="0.84116786720000003" green="0.1864320636" blue="0.29441642759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5G-KH-Ys9">
+                                                <rect key="frame" x="0.0" y="104.5" width="304" height="384.5"/>
+                                                <mutableString key="text">The best way to avoid technical debt is to incrementally build-up technical credit. This session builds on last year's Modernizing Existing Apps with Swift presentation to show you how you can continue modernizing your codebase while adopting best practices and adding new feature work.
+
+The best way to avoid technical debt is to incrementally build-up technical credit. This session builds on last year's Modernizing Existing Apps with Swift presentation to show you how you can continue modernizing your codebase while adopting best practices and adding new feature work.
+
+The best way to avoid technical debt is to incrementally build-up technical credit. This session builds on last year's Modernizing Existing Apps with Swift presentation to show you how you can continue modernizing your codebase while adopting best practices and adding new feature work.</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="cER-sA-cpU" firstAttribute="width" secondItem="s6H-iA-Qga" secondAttribute="width" multiplier="0.75" id="i53-Kd-yki"/>
-                                        </constraints>
                                     </stackView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11P-ha-zKc">
+                                        <rect key="frame" x="0.0" y="676" width="320" height="132"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="132" id="bRg-5Y-TaN"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="cmH-0R-aD1" kind="embed" identifier="EmbedActions" id="IFS-eb-G4K"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="Xn1-0q-2w9" firstAttribute="width" secondItem="oDW-Uv-JfK" secondAttribute="width" id="5ic-l1-jzd"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="11P-ha-zKc" secondAttribute="trailing" constant="-8" id="8ac-TL-20Z"/>
+                                    <constraint firstItem="Xn1-0q-2w9" firstAttribute="leading" secondItem="oDW-Uv-JfK" secondAttribute="leadingMargin" constant="-8" id="B3m-fa-5Q3"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Xn1-0q-2w9" secondAttribute="trailing" constant="-8" id="DS5-Xa-hwZ"/>
+                                    <constraint firstItem="11P-ha-zKc" firstAttribute="leading" secondItem="oDW-Uv-JfK" secondAttribute="leadingMargin" constant="-8" id="FZV-NB-dnh"/>
+                                    <constraint firstAttribute="bottom" secondItem="11P-ha-zKc" secondAttribute="bottom" constant="2.5" id="IEy-VY-2Hm"/>
+                                    <constraint firstItem="b4b-Ew-d9w" firstAttribute="leading" secondItem="oDW-Uv-JfK" secondAttribute="leading" constant="8" id="TTX-VF-Omw"/>
+                                    <constraint firstItem="b4b-Ew-d9w" firstAttribute="top" secondItem="Xn1-0q-2w9" secondAttribute="bottom" constant="8" id="YV6-0M-hFO"/>
+                                    <constraint firstItem="11P-ha-zKc" firstAttribute="top" secondItem="b4b-Ew-d9w" secondAttribute="bottom" constant="7.5" id="evQ-MH-cq5"/>
+                                    <constraint firstAttribute="trailing" secondItem="b4b-Ew-d9w" secondAttribute="trailing" constant="8" id="k9b-hw-flq"/>
+                                    <constraint firstItem="Xn1-0q-2w9" firstAttribute="top" secondItem="oDW-Uv-JfK" secondAttribute="topMargin" constant="-8" id="uRX-Ei-5di"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sVB-fw-jIl" firstAttribute="leading" secondItem="IJy-RI-Kdb" secondAttribute="leadingMargin" constant="16" id="ePI-Gy-Y5X"/>
-                            <constraint firstItem="sVB-fw-jIl" firstAttribute="top" secondItem="1YV-yg-L3C" secondAttribute="bottom" constant="16" id="vxa-xy-wsr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sVB-fw-jIl" secondAttribute="trailing" id="ze1-7H-mv0"/>
+                            <constraint firstItem="cLy-FT-ugn" firstAttribute="top" secondItem="oDW-Uv-JfK" secondAttribute="bottom" id="Cps-fR-Lwy"/>
+                            <constraint firstItem="oDW-Uv-JfK" firstAttribute="leading" secondItem="IJy-RI-Kdb" secondAttribute="leading" id="Ei0-fO-IMA"/>
+                            <constraint firstAttribute="topMargin" secondItem="oDW-Uv-JfK" secondAttribute="top" id="KP3-32-3Js"/>
+                            <constraint firstAttribute="trailing" secondItem="oDW-Uv-JfK" secondAttribute="trailing" id="xy3-Nb-fLS"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="1200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ily-e4-YgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269" y="63"/>
+            <point key="canvasLocation" x="2127.5390625" y="-239.84375"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="3Ek-6L-Qfh">
@@ -315,7 +307,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUs-ch-WAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2108" y="542"/>
+            <point key="canvasLocation" x="2736" y="63"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Vtr-tl-CZO">
@@ -370,7 +362,7 @@
                                 <rect key="frame" x="0.0" y="28" width="1024" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QDX-PD-LIa" id="fyH-rt-rld">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uye-nZ-U33">
@@ -442,7 +434,7 @@
                                 <rect key="frame" x="0.0" y="228" width="1024" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xb9-W0-uAs" id="BUM-XA-X3x">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ulg-Kc-w2h">
@@ -521,8 +513,119 @@
             </objects>
             <point key="canvasLocation" x="910" y="63"/>
         </scene>
+        <!--iPad Video Details View Controller-->
+        <scene sceneID="ROv-wb-iC3">
+            <objects>
+                <viewController storyboardIdentifier="iPadVideoDetailsViewController" id="Thl-Sw-YLz" customClass="iPadVideoDetailsViewController" customModule="DubDub17" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zuc-un-eut"/>
+                        <viewControllerLayoutGuide type="bottom" id="zpS-g8-WoO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IKm-tZ-Pjk">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="4Qb-GF-X9j">
+                                <rect key="frame" x="36" y="36" width="968" height="468"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="0tB-zB-PTh">
+                                        <rect key="frame" x="0.0" y="0.0" width="968" height="48.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Improving Existing Apps with Modern Best Practices" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSB-Ll-FAh">
+                                                <rect key="frame" x="0.0" y="0.0" width="719.5" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGw-IC-Bv7">
+                                                <rect key="frame" x="0.0" y="47.5" width="968" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="vEy-zC-c49"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="iGw-IC-Bv7" firstAttribute="width" secondItem="0tB-zB-PTh" secondAttribute="width" id="FVK-Nh-cda"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oSf-EK-1Ot">
+                                        <rect key="frame" x="0.0" y="84.5" width="968" height="383.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="0aj-Xr-GO2">
+                                                <rect key="frame" x="0.0" y="0.0" width="408" height="383.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="Icv-bv-vsb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="408" height="229.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Icv-bv-vsb" secondAttribute="height" multiplier="16:9" id="1rb-Gl-vGf"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="552" id="QQo-4f-NS6"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQi-bk-iFb">
+                                                        <rect key="frame" x="0.0" y="251.5" width="408" height="132"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="132" id="h4d-0h-DAG"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <segue destination="cmH-0R-aD1" kind="embed" id="ays-i2-BhG"/>
+                                                        </connections>
+                                                    </containerView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="skl-WF-T4Q">
+                                                <rect key="frame" x="424" y="0.0" width="544" height="59.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kK0-OZ-58d">
+                                                        <rect key="frame" x="0.0" y="0.0" width="196.5" height="43.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWDC 2016 | Session 505" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs5-qn-WmO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="196.5" height="19.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Frameworks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faI-yd-yvR">
+                                                                <rect key="frame" x="0.0" y="25.5" width="118.5" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                                <color key="textColor" red="0.2392156869" green="0.67450982329999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbw-qA-EtZ">
+                                                        <rect key="frame" x="0.0" y="59.5" width="544" height="0.0"/>
+                                                        <string key="text">The best way to avoid technical debt is to incrementally build-up technical credit. This session builds on last year's Modernizing Existing Apps with Swift presentation to show you how you can continue modernizing your codebase while adopting best practices and adding new feature work.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="0aj-Xr-GO2" firstAttribute="width" secondItem="skl-WF-T4Q" secondAttribute="width" multiplier="0.75" id="IEE-J6-OLZ"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Qb-GF-X9j" secondAttribute="trailing" id="3ag-4O-0ml"/>
+                            <constraint firstItem="4Qb-GF-X9j" firstAttribute="leading" secondItem="IKm-tZ-Pjk" secondAttribute="leadingMargin" constant="16" id="Rrc-vH-eT0"/>
+                            <constraint firstItem="4Qb-GF-X9j" firstAttribute="top" secondItem="zuc-un-eut" secondAttribute="bottom" constant="16" id="eh0-Hv-bDG"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ATx-6W-fbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2269" y="765"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Thumbnail" width="734" height="413"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IFS-eb-G4K"/>
+    </inferredMetricsTieBreakers>
 </document>

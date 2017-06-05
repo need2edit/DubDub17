@@ -13,8 +13,21 @@ protocol VideoDetailsViewControllerDelegate {
     func favoriteButtonTapped(_ controller: VideoDetailsViewController, video: Video)
 }
 
-class VideoDetailsViewController: UIViewController {
 
+
+class iPhoneVideoDetailsViewController: VideoDetailsViewController { }
+class iPadVideoDetailsViewController: VideoDetailsViewController { }
+
+class VideoDetailsViewController: UIViewController {
+    
+    public static func classForDevice() -> VideoDetailsViewController.Type {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return iPadVideoDetailsViewController.self
+        } else {
+            return iPhoneVideoDetailsViewController.self
+        }
+    }
+    
     var viewModel: VideoDetailsViewModel!
     var delegate: VideoDetailsViewControllerDelegate?
 

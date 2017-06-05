@@ -129,6 +129,7 @@
 		322F05A01EE4907B002D2699 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				322F05AE1EE49993002D2699 /* Constraints.swift */,
 				327C49311EE07CF600705D90 /* Storyboard.swift */,
 				32F777E61EE0F54000396E70 /* VideoCell.swift */,
 				32F777E41EE0EFD700396E70 /* ScrollingRowCell.swift */,
@@ -151,7 +152,6 @@
 			children = (
 				327C49231EE0795200705D90 /* Coordinator.swift */,
 				32F0D80B1EE393EE008E0730 /* Videos.swift */,
-				322F05AE1EE49993002D2699 /* Constraints.swift */,
 			);
 			name = Coordinator;
 			sourceTree = "<group>";

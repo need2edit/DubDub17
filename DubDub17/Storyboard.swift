@@ -20,12 +20,16 @@ enum ViewController: String {
     case AllVideosViewController
     case FeaturedVideosViewController
     case VideoDetailsViewController
+    case iPadVideoDetailsViewController
+    case iPhoneVideoDetailsViewController
     
     func viewControllerClass<A: UIViewController>() -> A {
         switch self {
         case .AllVideosViewController: return ViewController.AllVideosViewController as! A
         case .FeaturedVideosViewController: return ViewController.FeaturedVideosViewController as! A
         case .VideoDetailsViewController: return ViewController.VideoDetailsViewController as! A
+        case .iPadVideoDetailsViewController: return ViewController.iPadVideoDetailsViewController as! A
+        case .iPhoneVideoDetailsViewController: return ViewController.iPhoneVideoDetailsViewController as! A
         }
     }
 }

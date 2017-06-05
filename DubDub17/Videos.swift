@@ -45,16 +45,27 @@ extension Sharable where Self: Playable {
 
 extension VideosCoordinator {
     
+    private func setupDetails(_ viewController: VideoDetailsViewController, with video: Video) {
+        viewController.delegate = self
+        viewController.viewModel = VideoDetailsViewModel(video: video)
+    }
+    
     /// Shows the thumbnail and description information for a given video.
     ///
     /// - Parameters:
     ///   - video: the video you would like to show the details for
     ///   - controller: a navigation controller to push the details from (we may want this modal in the future)
     func showDetails(_ video: Video, from controller: UINavigationController?) {
-        let details: VideoDetailsViewController = UIStoryboard.videos.instantiateViewController()
-        details.delegate = self
-        details.viewModel = VideoDetailsViewModel(video: video)
-        controller?.pushViewController(details, animated: true)
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let details: iPadVideoDetailsViewController = UIStoryboard.videos.instantiateViewController()
+            setupDetails(details, with: video)
+            controller?.pushViewController(details, animated: true)
+        } else {
+            let details: iPhoneVideoDetailsViewController = UIStoryboard.videos.instantiateViewController()
+            setupDetails(details, with: video)
+            controller?.pushViewController(details, animated: true)
+        }
     }
     
     func play<Item: Playable>(_ itemToPlay: Item, from controller: UIViewController?) {
