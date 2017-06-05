@@ -38,7 +38,7 @@ class FeaturedVideosViewController: UITableViewController, SectionDelegate {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier(section: indexPath.section), for: indexPath) as! ScrollingRowCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier(section: indexPath.section), for: indexPath) as?ScrollingRowCell else { fatalError() }
         viewModel.configureCell(cell, at: indexPath, delegate: self)
         return cell
     }

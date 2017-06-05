@@ -20,6 +20,7 @@ class ScrollingRowCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).scrollDirection = .horizontal
         collectionView.dataSource = self
         collectionView.delegate = self

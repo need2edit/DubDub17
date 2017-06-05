@@ -53,8 +53,6 @@ public class VideoDetailsViewModel: ViewModel {
         .feedback
     ]
     
-    
-    
     public init(video: Video, tintColor: UIColor, callback: @escaping (State) -> Void) {
         self.video = video
         self.actionsTintColor = tintColor
