@@ -34,22 +34,6 @@ class VideosCoordinator: Coordinator {
 
 }
 
-// MARK: - Showing Video Details
-
-public protocol Playable {
-    var mediaURL: URL { get }
-}
-
-public protocol Sharable {
-    var sharingURL: URL { get }
-}
-
-extension Sharable where Self: Playable {
-    var sharingURL: URL {
-        return mediaURL
-    }
-}
-
 extension VideosCoordinator {
     
     private func setupDetailsViewController(_ viewController: VideoDetailsViewController, with video: Video) {
@@ -125,7 +109,6 @@ extension VideosCoordinator: FeaturedVideosViewControllerDelegate {
 
 extension VideosCoordinator: VideoDetailsViewControllerDelegate {
 
-
     // MARK: - Video Details
 
     func shareButtonTapped(_ controller: VideoDetailsViewController, video: Video) {
@@ -133,7 +116,23 @@ extension VideosCoordinator: VideoDetailsViewControllerDelegate {
     }
 
     func favoriteButtonTapped(_ controller: VideoDetailsViewController, video: Video) {
+        controller.toggleFavorite()
+    }
+    
+    func playVideoButtonTapped(_ controller: VideoDetailsViewController, video: Video) {
         play(video, from: controller)
+    }
+    
+    func downloadVideoRowSelected(_ controller: VideoDetailsViewController, video: Video) {
+        controller.showAlert(title: #function)
+    }
+    
+    func markAsWatchedRowSelected(_ controller: VideoDetailsViewController, video: Video) {
+        controller.showAlert(title: #function)
+    }
+    
+    func leaveFeedbackRowSelected(_ controller: VideoDetailsViewController, video: Video) {
+        controller.showAlert(title: #function)
     }
     
 }
