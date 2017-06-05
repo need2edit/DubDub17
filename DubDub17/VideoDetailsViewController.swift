@@ -20,13 +20,11 @@ class iPadVideoDetailsViewController: VideoDetailsViewController { }
 
 class VideoDetailsViewController: UIViewController {
     
-    public static func classForDevice() -> VideoDetailsViewController.Type {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return iPadVideoDetailsViewController.self
-        } else {
-            return iPhoneVideoDetailsViewController.self
-        }
-    }
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var titleTextLabel: UILabel!
+    @IBOutlet var subtitleTextLabel: UILabel!
+    @IBOutlet var metaTextLabel: UILabel!
+    @IBOutlet var descriptionTextLabel: UILabel!
     
     var viewModel: VideoDetailsViewModel!
     var delegate: VideoDetailsViewControllerDelegate?

@@ -20,7 +20,6 @@ class Screens {
         return tc
     }
 
-
     func videosRoot() -> UINavigationController {
         let vc: UINavigationController = initialViewControllerForStoryboard(.videos)
         vc.tabBarItem = App.Tab.videos.tabBarItem
