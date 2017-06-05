@@ -37,8 +37,8 @@ class VideosCoordinator: Coordinator {
 extension VideosCoordinator {
     
     private func setupDetailsViewController(_ viewController: VideoDetailsViewController, with video: Video) {
+        viewController.video = video
         viewController.delegate = self
-        viewController.viewModel = VideoDetailsViewModel(video: video, tintColor: Theme.shared.primaryColor)
     }
     
     /// Shows the thumbnail and description information for a given video.
@@ -131,7 +131,7 @@ extension VideosCoordinator: VideoDetailsViewControllerDelegate {
     }
     
     func markAsWatchedRowSelected(_ controller: VideoDetailsViewController, video: Video) {
-        controller.showAlert(title: #function)
+        controller.toggleWatchedStatus()
     }
     
     func leaveFeedbackRowSelected(_ controller: VideoDetailsViewController, video: Video) {

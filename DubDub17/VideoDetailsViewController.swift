@@ -22,6 +22,18 @@ class iPadVideoDetailsViewController: VideoDetailsViewController { }
 
 class VideoDetailsViewController: UIViewController, MVVM {
     
+    var video: Video? {
+        didSet {
+            guard let video = video else { fatalError() }
+            viewModel = VideoDetailsViewModel(video: video, tintColor: Theme.shared.primaryColor) { [unowned self] state in
+                DispatchQueue.main.async {
+                    self.setupNavigation()
+                    self.actionsTableView?.reloadData()
+                }
+            }
+        }
+    }
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextLabel: UILabel!
     @IBOutlet weak var subtitleTextLabel: UILabel!
@@ -44,21 +56,11 @@ class VideoDetailsViewController: UIViewController, MVVM {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigation()
         
         actionsTableView.dataSource = self
         actionsTableView.delegate = self
         actionsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "ActionCell")
-    }
-    
-    var isFavorite: Bool = false {
-        didSet {
-            setupNavigation()
-        }
-    }
-    
-    private func favoriteImage() -> UIImage? {
-        return isFavorite ? #imageLiteral(resourceName: "StarFilled") : #imageLiteral(resourceName: "Star")
+        
     }
     
     private var shareBarButtonItem: UIBarButtonItem {
@@ -66,7 +68,7 @@ class VideoDetailsViewController: UIViewController, MVVM {
     }
     
     private var favoriteBarButtonItem: UIBarButtonItem {
-        return UIBarButtonItem(image: favoriteImage(), style: .done, target: self, action: #selector(VideoDetailsViewController.favoriteButtonTapped))
+        return UIBarButtonItem(image: viewModel?.favoriteImage(), style: .done, target: self, action: #selector(VideoDetailsViewController.favoriteButtonTapped))
     }
 
     func setupNavigation() {
@@ -86,7 +88,11 @@ class VideoDetailsViewController: UIViewController, MVVM {
     }
     
     public func toggleFavorite() {
-        isFavorite = !isFavorite
+        viewModel.state.isFavorite = !viewModel.state.isFavorite
+    }
+    
+    public func toggleWatchedStatus() {
+        viewModel.state.isWatched = !viewModel.state.isWatched
     }
     
 }
@@ -98,18 +104,18 @@ extension VideoDetailsViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfActions()
+        return viewModel?.numberOfActions() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActionCell", for: indexPath)
-        viewModel.configureCell(cell, at: indexPath)
+        viewModel?.configureCell(cell, at: indexPath)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let delegate = self.delegate else { return }
-        viewModel.selectVideo(at: indexPath, using: delegate, controller: self)
+        viewModel?.selectVideo(at: indexPath, using: delegate, controller: self)
     }
     
 }

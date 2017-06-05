@@ -10,15 +10,34 @@ import UIKit
 
 public class VideoDetailsViewModel: ViewModel {
     
+    public struct State {
+        var isWatched: Bool = false
+        var downloadStatus: DownloadStatus = .notDownloaded
+        var isFavorite: Bool = false
+    }
+    
+    public func favoriteImage() -> UIImage? {
+        return state.isFavorite ? #imageLiteral(resourceName: "StarFilled") : #imageLiteral(resourceName: "Star")
+    }
+    
+    var callback: (State) -> Void
+    
+    var state: State = State() {
+        didSet {
+            callback(state)
+        }
+    }
+    
     enum Action: CustomStringConvertible {
+        
         case watched
         case download
         case feedback
         
         var description: String {
             switch self {
-            case .watched:
-                return "Mark as Unwatched"
+            case .watched(let isWatched):
+                return "Mark as \(isWatched)"
             case .download:
                 return "Download Video"
             case .feedback:
@@ -36,9 +55,15 @@ public class VideoDetailsViewModel: ViewModel {
     let video: Video
     let actionsTintColor: UIColor
     
-    public init(video: Video, tintColor: UIColor) {
+    public init(video: Video, tintColor: UIColor, callback: @escaping (State) -> Void) {
         self.video = video
         self.actionsTintColor = tintColor
+        self.callback = callback
+        self.callback(state)
+    }
+    
+    public func isWatchedText() -> String {
+        return state.isWatched ? "Mark as Unwatched": "Mark as Watched"
     }
     
     public func titleText() -> String {
@@ -53,9 +78,20 @@ public class VideoDetailsViewModel: ViewModel {
         return actions[indexPath.row]
     }
     
+    func cellTextForAction(_ action: Action) -> String {
+        switch action {
+        case .download:
+            return action.description
+        case .watched:
+            return isWatchedText()
+        case .feedback:
+            return action.description
+        }
+    }
+    
     func configureCell(_ cell: UITableViewCell, at indexPath: IndexPath) {
         let action = actions[indexPath.row]
-        cell.textLabel?.text = action.description
+        cell.textLabel?.text = cellTextForAction(action)
         cell.textLabel?.textColor = actionsTintColor
     }
     
