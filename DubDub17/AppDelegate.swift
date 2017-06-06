@@ -16,11 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        guard let window = window else { fatalError() }
+        guard let window = window else { fatalError("could not set a window to intiate application") }
         app = App(window: window)
         
         return true
     }
 
 }
-

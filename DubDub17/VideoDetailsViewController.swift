@@ -114,7 +114,7 @@ public class VideoDetailsViewModel: ViewModel {
 
 // MARK: - View Controller Delegation
 
-protocol VideoDetailsViewControllerDelegate {
+protocol VideoDetailsViewControllerDelegate: class {
     func shareButtonTapped(_ controller: VideoDetailsViewController, video: Video)
     func favoriteButtonTapped(_ controller: VideoDetailsViewController, video: Video)
     func playVideoButtonTapped(_ controller: VideoDetailsViewController, video: Video)
@@ -123,20 +123,18 @@ protocol VideoDetailsViewControllerDelegate {
     func leaveFeedbackRowSelected(_ controller: VideoDetailsViewController, video: Video)
 }
 
-
 // MARK: - Layout Differences for Each Device
 
 class iPhoneVideoDetailsViewController: VideoDetailsViewController { }
 class iPadVideoDetailsViewController: VideoDetailsViewController { }
-
 
 // MARK: - Video Details Controller
 class VideoDetailsViewController: UIViewController, MVVM {
     
     var video: Video? {
         didSet {
-            guard let video = video else { fatalError() }
-            viewModel = VideoDetailsViewModel(video: video, tintColor: Theme.shared.primaryColor) { [unowned self] state in
+            guard let video = video else { fatalError("video not set on video details view controller") }
+            viewModel = VideoDetailsViewModel(video: video, tintColor: Theme.shared.primaryColor) { [unowned self] _ in
                 DispatchQueue.main.async {
                     self.setupNavigation()
                     self.actionsTableView?.reloadData()
@@ -145,17 +143,17 @@ class VideoDetailsViewController: UIViewController, MVVM {
         }
     }
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleTextLabel: UILabel!
-    @IBOutlet weak var subtitleTextLabel: UILabel!
-    @IBOutlet weak var metaTextLabel: UILabel!
-    @IBOutlet weak var descriptionTextLabel: UILabel!
+    @IBOutlet weak private var imageView: UIImageView!
+    @IBOutlet weak private var titleTextLabel: UILabel!
+    @IBOutlet weak private var subtitleTextLabel: UILabel!
+    @IBOutlet weak private var metaTextLabel: UILabel!
+    @IBOutlet weak private var descriptionTextLabel: UILabel!
     
-    @IBOutlet weak var actionsTableView: UITableView!
+    @IBOutlet weak private var actionsTableView: UITableView!
     
     var viewModel: VideoDetailsViewModel!
     
-    var delegate: VideoDetailsViewControllerDelegate?
+    weak var delegate: VideoDetailsViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -167,7 +165,7 @@ class VideoDetailsViewController: UIViewController, MVVM {
     }
     
     private var shareBarButtonItem: UIBarButtonItem {
-        return UIBarButtonItem.init(barButtonSystemItem: .action, target: self, action: #selector(VideoDetailsViewController.shareButtonTapped))
+        return UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(VideoDetailsViewController.shareButtonTapped))
     }
     
     private var favoriteBarButtonItem: UIBarButtonItem {

@@ -6,9 +6,9 @@
 //  Copyright © 2017 Jake Young. All rights reserved.
 //
 
+import AVFoundation
 import AVKit
 import UIKit
-import AVFoundation
 
 /** Videos coordinator will have a starting screen as a UINavigationController.
  *

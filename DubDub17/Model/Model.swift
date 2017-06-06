@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Event Year
 
 public enum EventYear: Int {
-    case wwdc2013 = 2013, wwdc2014, wwdc2015, wwdc2016,wwdc2017
+    case wwdc2013 = 2_013, wwdc2014, wwdc2015, wwdc2016,wwdc2017
 }
 
 extension EventYear: CustomStringConvertible {
@@ -64,7 +64,6 @@ extension Track {
     }
 }
 
-
 // MARK: - Platforms
 
 public enum Platform: CustomStringConvertible {
@@ -105,8 +104,6 @@ class VideoFilter: Filter {
     var downloadedVideosOnly: Bool
     
     var tracks: [Track: Bool]
-    
-    
     
     func enableTrack(_ track: Track) {
         tracks[track] = true
@@ -165,8 +162,6 @@ extension Video: Playable {
     }
 }
 
-
-
 extension Video {
     
     static var fakeVideo: Video {
@@ -195,9 +190,3 @@ extension Video {
         ]
     }
 }
-
-
-
-
-
-

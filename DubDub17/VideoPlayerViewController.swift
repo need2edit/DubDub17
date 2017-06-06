@@ -1,3 +1,11 @@
+//
+//  VideoPlayerViewController.swift
+//  DubDub17
+//
+//  Created by Jake Young on 6/1/17.
+//  Copyright © 2017 Jake Young. All rights reserved.
+//
+
 import AVFoundation
 import AVKit
 import UIKit
@@ -70,5 +78,9 @@ public final class VideoPlayerViewController: UIViewController {
 
     public func play() {
         playerViewController.player?.play()
+    }
+    
+    public override var prefersStatusBarHidden: Bool {
+        return true
     }
 }

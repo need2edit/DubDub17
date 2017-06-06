@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol VideoSelectionDelegate {
+protocol VideoSelectionDelegate: class {
     func didSelect(video: Video)
 }
 
@@ -21,7 +21,7 @@ protocol VideosViewControllerDelegate: class {
 
 class VideosViewController: UIViewController {
 
-    var delegate: VideosViewControllerDelegate?
+    weak var delegate: VideosViewControllerDelegate?
 
     enum Scope: String {
         case featured
@@ -47,7 +47,7 @@ class VideosViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var scopeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak private var scopeSegmentedControl: UISegmentedControl!
     
     @IBAction func scopeSegmentedControlChanged(_ sender: UISegmentedControl) {
         guard
@@ -162,8 +162,6 @@ class VideosViewController: UIViewController {
         // Notify Child View Controller
         viewController.removeFromParentViewController()
     }
-
-
 
     func filterButtonTapped(_ sender: UIBarButtonItem) {
         delegate?.controllerDidTapFilterButton(allVideosViewController)

@@ -20,14 +20,14 @@ public final class Section: NSObject {
     }
 }
 
-public protocol SectionDelegate {
+public protocol SectionDelegate: class {
     func didSelect(video: Video)
 }
 
 public class SectionViewModel: NSObject, ViewModel {
     
     let currentSection: Section
-    let delegate: SectionDelegate
+    weak var delegate: SectionDelegate?
     
     init(section: Section, delegate: SectionDelegate) {
         self.currentSection = section
@@ -49,8 +49,8 @@ public class SectionViewModel: NSObject, ViewModel {
     
     public func configureCell(_ cell: VideoCell, at indexPath: IndexPath) {
         cell.backgroundColor  = .white
-        cell.imageView.backgroundColor = .gray
-        cell.textLabel.text = getItem(at: indexPath).name
+        cell.setImageBackgroundColor(.gray)
+        cell.updateTitle(getItem(at: indexPath).name)
     }
     
     public func title() -> String? {

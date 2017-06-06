@@ -16,7 +16,7 @@ class ScrollingRowCell: UITableViewCell {
         }
     }
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak private var collectionView: UICollectionView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,7 +58,7 @@ extension ScrollingRowCell: UICollectionViewDelegate, UICollectionViewDataSource
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.delegate.didSelect(video: viewModel.getItem(at: indexPath))
+        viewModel.delegate?.didSelect(video: viewModel.getItem(at: indexPath))
     }
     
 }

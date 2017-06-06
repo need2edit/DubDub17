@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol FeaturedVideosViewControllerDelegate {
+protocol FeaturedVideosViewControllerDelegate: class {
     func featuredControllerDidSelectVideo(_ controller: FeaturedVideosViewController, video: Video)
 }
 
 class FeaturedVideosViewController: UITableViewController, SectionDelegate {
 
     var viewModel: FeaturedViewModel!
-    var delegate: FeaturedVideosViewControllerDelegate?
+    weak var delegate: FeaturedVideosViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class FeaturedVideosViewController: UITableViewController, SectionDelegate {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier(section: indexPath.section), for: indexPath) as?ScrollingRowCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier(section: indexPath.section), for: indexPath) as?ScrollingRowCell else { fatalError("could not dequeue a scrolling row cell") }
         viewModel.configureCell(cell, at: indexPath, delegate: self)
         return cell
     }

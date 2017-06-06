@@ -11,7 +11,7 @@ import UIKit
 class Screens {
 
     func initialViewControllerForStoryboard<A: UIViewController>(_ storyboard: StoryboardIdentifier) -> A {
-        guard let vc = UIStoryboard(identifier: storyboard).instantiateInitialViewController() as? A else { fatalError() }
+        guard let vc = UIStoryboard(identifier: storyboard).instantiateInitialViewController() as? A else { fatalError("there is no intial view controller for storyboard: \(storyboard), viewController class: \(A.self)") }
         return vc
     }
 

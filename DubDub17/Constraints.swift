@@ -2,7 +2,7 @@
 //  Constraints.swift
 //  DubDub17
 //
-//  Created by Jake Young on 6/4/17.
+//  Created by Jake Young on 6/1/17.
 //  Copyright © 2017 Jake Young. All rights reserved.
 //
 
@@ -27,13 +27,12 @@ extension UIView {
     
     /// If the `view` is nil, we take the superview.
     public func center(inView view: UIView? = nil) {
-        guard let container = view ?? self.superview else { fatalError() }
+        guard let container = view ?? self.superview else { fatalError("could not locate superview or container view while centering") }
         centerXAnchor.constrainEqual(container.centerXAnchor)
         centerYAnchor.constrainEqual(container.centerYAnchor)
     }
     
 }
-
 
 extension UIView {
     public func constrainEqual(_ attribute: NSLayoutAttribute, to: AnyObject, multiplier: CGFloat = 1, constant: CGFloat = 0) {
