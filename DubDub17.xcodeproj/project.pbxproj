@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3227119B1EEC30E600E6D324 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227119A1EEC30E600E6D324 /* Data.swift */; };
 		322EDAB51EE5052F00A70650 /* Playable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322EDAB41EE5052F00A70650 /* Playable.swift */; };
 		322EDAB71EE5061100A70650 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322EDAB61EE5061100A70650 /* Helpers.swift */; };
 		322F059E1EE48650002D2699 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322F059D1EE48650002D2699 /* Model.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3227119A1EEC30E600E6D324 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		322EDAB41EE5052F00A70650 /* Playable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playable.swift; sourceTree = "<group>"; };
 		322EDAB61EE5061100A70650 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		322F059D1EE48650002D2699 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Model/Model.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				327C49311EE07CF600705D90 /* Storyboard.swift */,
 				32F777E61EE0F54000396E70 /* VideoCell.swift */,
 				32F777E41EE0EFD700396E70 /* ScrollingRowCell.swift */,
+				3227119A1EEC30E600E6D324 /* Data.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				322F05AB1EE49831002D2699 /* VideoPlayerViewController.swift in Sources */,
 				327C49241EE0795200705D90 /* Coordinator.swift in Sources */,
 				322F05A51EE4924A002D2699 /* SectionViewModel.swift in Sources */,
+				3227119B1EEC30E600E6D324 /* Data.swift in Sources */,
 				32BF169D1EE59C65001FB39A /* MVVM.swift in Sources */,
 				322F05AF1EE49993002D2699 /* Constraints.swift in Sources */,
 				32F777E71EE0F54000396E70 /* VideoCell.swift in Sources */,

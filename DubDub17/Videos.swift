@@ -86,15 +86,15 @@ extension VideosCoordinator {
 extension VideosCoordinator: VideosViewControllerDelegate {
 
     func controllerDidTapFilterButton(_ controller: AllVideosViewController) {
-
+        controller.showAlert(title: #function)
     }
 
     func controllerDidTapSearchButton(_ controller: AllVideosViewController) {
-
+        controller.showAlert(title: #function)
     }
 
     func controllerDidSelectAllVideos(_ controller: AllVideosViewController) {
-        //        controller.delegate = self
+        
     }
 
     func controllerDidSelectFeaturedVideos(_ controller: FeaturedVideosViewController) {

@@ -10,12 +10,7 @@ import UIKit
 
 struct FeaturedViewModel: ViewModel {
 
-    var sections: [Section] = [
-        Section(title: "Featured", videos: Video.defaultData),
-        Section(title: "Timeless Best Practices", videos: Video.defaultData),
-        Section(title: "Design", videos: Video.defaultData),
-        Section(title: "More Stuff", videos: Video.defaultData)
-    ]
+    var sections: [Section] = Data.featuredContent()
 
     func numberOfSections() -> Int {
         return sections.count
