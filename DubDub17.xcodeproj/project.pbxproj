@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3227119B1EEC30E600E6D324 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227119A1EEC30E600E6D324 /* Data.swift */; };
+		3227119D1EEC347400E6D324 /* VideoFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227119C1EEC347400E6D324 /* VideoFilterViewController.swift */; };
+		3227119F1EEC366800E6D324 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227119E1EEC366800E6D324 /* Filter.swift */; };
 		322EDAB51EE5052F00A70650 /* Playable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322EDAB41EE5052F00A70650 /* Playable.swift */; };
 		322EDAB71EE5061100A70650 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322EDAB61EE5061100A70650 /* Helpers.swift */; };
 		322F059E1EE48650002D2699 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322F059D1EE48650002D2699 /* Model.swift */; };
@@ -68,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		3227119A1EEC30E600E6D324 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		3227119C1EEC347400E6D324 /* VideoFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoFilterViewController.swift; sourceTree = "<group>"; };
+		3227119E1EEC366800E6D324 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Model/Filter.swift; sourceTree = "<group>"; };
 		322EDAB41EE5052F00A70650 /* Playable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playable.swift; sourceTree = "<group>"; };
 		322EDAB61EE5061100A70650 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		322F059D1EE48650002D2699 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Model/Model.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				322F059D1EE48650002D2699 /* Model.swift */,
 				322F05AC1EE49851002D2699 /* Notifications.swift */,
 				322EDAB41EE5052F00A70650 /* Playable.swift */,
+				3227119E1EEC366800E6D324 /* Filter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				327C49351EE0C53A00705D90 /* FeaturedVideosViewController.swift */,
 				32C6BEB61EE1186B00528C6B /* VideoDetailsViewController.swift */,
 				322F05AA1EE49831002D2699 /* VideoPlayerViewController.swift */,
+				3227119C1EEC347400E6D324 /* VideoFilterViewController.swift */,
 				322EDAB61EE5061100A70650 /* Helpers.swift */,
 			);
 			name = Controller;
@@ -358,11 +364,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				327C49341EE0C52B00705D90 /* AllVideosViewController.swift in Sources */,
+				3227119F1EEC366800E6D324 /* Filter.swift in Sources */,
 				322F05AB1EE49831002D2699 /* VideoPlayerViewController.swift in Sources */,
 				327C49241EE0795200705D90 /* Coordinator.swift in Sources */,
 				322F05A51EE4924A002D2699 /* SectionViewModel.swift in Sources */,
 				3227119B1EEC30E600E6D324 /* Data.swift in Sources */,
 				32BF169D1EE59C65001FB39A /* MVVM.swift in Sources */,
+				3227119D1EEC347400E6D324 /* VideoFilterViewController.swift in Sources */,
 				322F05AF1EE49993002D2699 /* Constraints.swift in Sources */,
 				32F777E71EE0F54000396E70 /* VideoCell.swift in Sources */,
 				327C49321EE07CF600705D90 /* Storyboard.swift in Sources */,

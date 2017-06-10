@@ -11,12 +11,35 @@ import Foundation
 // MARK: - Event Year
 
 public enum EventYear: Int {
-    case wwdc2013 = 2_013, wwdc2014, wwdc2015, wwdc2016,wwdc2017
+    case all = 999, wwdc2013 = 2013, wwdc2014, wwdc2015, wwdc2016, wwdc2017
+}
+
+extension EventYear {
+    static var allValues: [EventYear] {
+        return [.all, .wwdc2013, .wwdc2014, .wwdc2015, .wwdc2016]
+    }
+}
+
+extension EventYear: Comparable {
+    
+    public static func == (lhs: EventYear, rhs: EventYear) -> Bool {
+        return lhs.rawValue == rhs.rawValue
+    }
+    
+    public static func < (lhs: EventYear, rhs: EventYear) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
 }
 
 extension EventYear: CustomStringConvertible {
     public var description: String {
-        return "WWDC \(self.rawValue)"
+        switch self {
+        case .all:
+            return "All"
+        default:
+            return "WWDC \(self.rawValue)"
+        }
+        
     }
 }
 
@@ -59,7 +82,7 @@ extension Track: CustomStringConvertible {
 }
 
 extension Track {
-    static var all: [Track] {
+    static var allValues: [Track] {
         return [.featured, .media, .developerTools, .graphicsAndGames, .systemsFrameworks, .appFrameworks, .design, .distribution]
     }
 }
@@ -67,6 +90,8 @@ extension Track {
 // MARK: - Platforms
 
 public enum Platform: CustomStringConvertible {
+    
+    case all
     case iOS
     case macOS
     case tvOS
@@ -74,6 +99,12 @@ public enum Platform: CustomStringConvertible {
     
     public var description: String {
         return String(describing: self)
+    }
+}
+
+extension Platform {
+    static var allValues: [Platform] {
+        return [.all, .iOS, .macOS, .tvOS, .watchOS]
     }
 }
 
@@ -88,58 +119,6 @@ public enum ViewingStatus: CustomStringConvertible {
 
 public enum DownloadStatus {
     case downloaded, notDownloaded
-}
-
-protocol Filter {
-    func reset()
-}
-
-class VideoFilter: Filter {
-    
-    var favoritesOnly: Bool
-    var eventYear: EventYear?
-    var platform: Platform?
-    
-    var unwatchedVideosOnly: Bool
-    var downloadedVideosOnly: Bool
-    
-    var tracks: [Track: Bool]
-    
-    func enableTrack(_ track: Track) {
-        tracks[track] = true
-    }
-    
-    func disableTrack(_ track: Track) {
-        tracks[track] = false
-    }
-    
-    func reset() {
-        favoritesOnly = false
-        eventYear = nil
-        platform = nil
-        unwatchedVideosOnly = false
-        downloadedVideosOnly = false
-        enableAllTracks()
-    }
-    
-    func enableAllTracks() {
-        for track in Track.all {
-            tracks[track] = true
-        }
-    }
-    
-    init() {
-        
-        self.favoritesOnly = true
-        self.eventYear = nil
-        self.platform = nil
-        self.unwatchedVideosOnly = false
-        self.downloadedVideosOnly = false
-        
-        self.tracks = [Track: Bool]()
-        enableAllTracks()
-        
-    }
 }
 
 public struct Video {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PZY-NP-eTj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PZY-NP-eTj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -248,7 +248,7 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ily-e4-YgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036.8" y="1749.6251874062971"/>
+            <point key="canvasLocation" x="2637" y="-523"/>
         </scene>
         <!--Featured-->
         <scene sceneID="jjx-fK-KyS">
@@ -280,7 +280,7 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                                     <rect key="frame" x="57.5" y="0.0" width="260" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                        <rect key="frame" x="0.0" y="0.0" width="261" height="200"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="260" height="200"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="VWE-Ha-xRK">
@@ -414,6 +414,113 @@ The best way to avoid technical debt is to incrementally build-up technical cred
             </objects>
             <point key="canvasLocation" x="195" y="-627"/>
         </scene>
+        <!--Video Filter View Controller-->
+        <scene sceneID="Why-e8-Umb">
+            <objects>
+                <tableViewController storyboardIdentifier="VideoFilterViewController" id="CCH-Df-VBd" customClass="VideoFilterViewController" customModule="DubDub17" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZC1-hS-et8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToggleCell" id="364-ju-fJA">
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="364-ju-fJA" id="3dA-Et-D0S">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UyD-4v-Tzt">
+                                            <rect key="frame" x="16" y="8" width="351" height="27.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On / Off Option Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3k-0s-Gmp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="302" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="49d-CQ-1hx">
+                                                    <rect key="frame" x="302" y="0.0" width="51" height="27.5"/>
+                                                </switch>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="UyD-4v-Tzt" secondAttribute="trailing" id="EGG-dl-pjD"/>
+                                        <constraint firstItem="UyD-4v-Tzt" firstAttribute="top" secondItem="3dA-Et-D0S" secondAttribute="topMargin" id="fw5-Ev-FhM"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="UyD-4v-Tzt" secondAttribute="bottom" id="hBs-zN-t75"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="UyD-4v-Tzt" secondAttribute="leading" constant="-8" id="qzy-tT-vx5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" id="Ohx-2o-cSa">
+                                <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ohx-2o-cSa" id="Sta-Df-dte">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6At-zl-NCr">
+                                            <rect key="frame" x="14" y="18" width="8" height="8"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="8" id="RAE-gJ-kmo"/>
+                                                <constraint firstAttribute="width" constant="8" id="U6g-Ri-56l"/>
+                                            </constraints>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKX-JM-32F">
+                                            <rect key="frame" x="36" y="8" width="331" height="27.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmK-vn-K0z">
+                                                    <rect key="frame" x="0.0" y="0.0" width="282" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bD-Rb-AWi">
+                                                    <rect key="frame" x="282" y="0.0" width="51" height="27.5"/>
+                                                </switch>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="SKX-JM-32F" secondAttribute="trailing" id="29O-WG-iNh"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="SKX-JM-32F" secondAttribute="bottom" id="6Af-hy-To8"/>
+                                        <constraint firstItem="6At-zl-NCr" firstAttribute="leading" secondItem="ZmK-vn-K0z" secondAttribute="leading" constant="-22" id="BYC-Iy-vbT"/>
+                                        <constraint firstItem="6At-zl-NCr" firstAttribute="centerY" secondItem="ZmK-vn-K0z" secondAttribute="centerY" id="CEA-6d-Lm3"/>
+                                        <constraint firstItem="SKX-JM-32F" firstAttribute="top" secondItem="Sta-Df-dte" secondAttribute="topMargin" id="Coj-Jo-Xzl"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="SKX-JM-32F" secondAttribute="leading" constant="-28" id="QDs-s0-6az"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="4do-3c-4Wy" style="IBUITableViewCellStyleDefault" id="LuD-8u-sBM">
+                                <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LuD-8u-sBM" id="3L3-al-Lz2">
+                                    <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Checkmark Option" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4do-3c-4Wy">
+                                            <rect key="frame" x="15" y="0.0" width="321" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CCH-Df-VBd" id="CM4-6v-4Ij"/>
+                            <outlet property="delegate" destination="CCH-Df-VBd" id="0Aj-NN-VVs"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5kk-26-kSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="195" y="119"/>
+        </scene>
         <!--iPad Video Details View Controller-->
         <scene sceneID="ROv-wb-iC3">
             <objects>
@@ -541,7 +648,7 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATx-6W-fbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1083" y="990"/>
+            <point key="canvasLocation" x="1759" y="-627"/>
         </scene>
     </scenes>
     <resources>
