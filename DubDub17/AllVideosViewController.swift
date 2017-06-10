@@ -9,6 +9,8 @@
 import UIKit
 
 class AllVideosViewController: UITableViewController {
+    
+    weak var delegate: VideosViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -94,7 +94,7 @@ extension VideosCoordinator: VideosViewControllerDelegate {
     }
 
     func controllerDidSelectAllVideos(_ controller: AllVideosViewController) {
-        
+        controller.delegate = self
     }
 
     func controllerDidSelectFeaturedVideos(_ controller: FeaturedVideosViewController) {
