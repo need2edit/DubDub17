@@ -25,6 +25,11 @@ class Screens {
         vc.tabBarItem = App.Tab.videos.tabBarItem
         return vc
     }
+    
+    func videoFilters() -> VideoFilterViewController {
+        let vc: VideoFilterViewController = UIStoryboard.videos.instantiateViewController()
+        return vc
+    }
 
     func schedule() -> UIViewController {
         let vc: UINavigationController = initialViewControllerForStoryboard(.schedule)
@@ -43,4 +48,5 @@ class Screens {
         vc.tabBarItem = App.Tab.venue.tabBarItem
         return vc
     }
+
 }

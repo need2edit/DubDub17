@@ -15,8 +15,8 @@ protocol VideoSelectionDelegate: class {
 protocol VideosViewControllerDelegate: class {
     func controllerDidSelectAllVideos(_ controller: AllVideosViewController)
     func controllerDidSelectFeaturedVideos(_ controller: FeaturedVideosViewController)
-    func controllerDidTapSearchButton(_ controller: AllVideosViewController)
-    func controllerDidTapFilterButton(_ controller: AllVideosViewController)
+    func controllerDidTapSearchButton(_ controller: AllVideosViewController, barButtonItem: UIBarButtonItem)
+    func controllerDidTapFilterButton(_ controller: AllVideosViewController, barButtonItem: UIBarButtonItem)
 }
 
 class VideosViewController: UIViewController {
@@ -164,11 +164,11 @@ class VideosViewController: UIViewController {
     }
 
     func filterButtonTapped(_ sender: UIBarButtonItem) {
-        delegate?.controllerDidTapFilterButton(allVideosViewController)
+        delegate?.controllerDidTapFilterButton(allVideosViewController, barButtonItem: sender)
     }
 
     func searchButtonTapped(_ sender: UIBarButtonItem) {
-        delegate?.controllerDidTapSearchButton(allVideosViewController)
+        delegate?.controllerDidTapSearchButton(allVideosViewController, barButtonItem: sender)
     }
 
 }

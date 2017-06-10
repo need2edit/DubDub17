@@ -19,10 +19,12 @@ import UIKit
  */
 class VideosCoordinator: Coordinator {
 
+    var screens: Screens
     var screen: UINavigationController
     var videoPlayer: AVPlayerViewController?
 
     init(_ screens: Screens) {
+        self.screens = screens
         self.screen = screens.videosRoot()
     }
 
@@ -85,11 +87,19 @@ extension VideosCoordinator {
 
 extension VideosCoordinator: VideosViewControllerDelegate {
 
-    func controllerDidTapFilterButton(_ controller: AllVideosViewController) {
-        controller.showAlert(title: #function)
+    func controllerDidTapFilterButton(_ controller: AllVideosViewController, barButtonItem: UIBarButtonItem) {
+        
+        let filter = screens.videoFilters()
+        
+        // Wrap the filter in a navigation controller & have it presented as a popover
+        let nav = UINavigationController(rootViewController: filter)
+        nav.popoverPresentationController?.barButtonItem = controller.navigationItem.leftBarButtonItem
+        nav.modalPresentationStyle = .popover
+        nav.popoverPresentationController?.barButtonItem = barButtonItem
+        screen.present(nav, animated: true, completion: nil)
     }
 
-    func controllerDidTapSearchButton(_ controller: AllVideosViewController) {
+    func controllerDidTapSearchButton(_ controller: AllVideosViewController, barButtonItem: UIBarButtonItem) {
         controller.showAlert(title: #function)
     }
 
