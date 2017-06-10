@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pex-54-a3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="-2632"/>
+            <point key="canvasLocation" x="-433" y="-586"/>
         </scene>
         <!--Videos View Controller-->
         <scene sceneID="pGT-S4-7JV">
@@ -58,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKS-dW-oiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="-1638"/>
+            <point key="canvasLocation" x="-433" y="409"/>
         </scene>
         <!--All-->
         <scene sceneID="DSf-TO-XC8">
@@ -493,7 +493,7 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="4do-3c-4Wy" style="IBUITableViewCellStyleDefault" id="LuD-8u-sBM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="CheckmarkCell" textLabel="4do-3c-4Wy" style="IBUITableViewCellStyleDefault" id="LuD-8u-sBM">
                                 <rect key="frame" x="0.0" y="144" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LuD-8u-sBM" id="3L3-al-Lz2">
