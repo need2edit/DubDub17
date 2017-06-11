@@ -423,7 +423,7 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToggleCell" id="364-ju-fJA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToggleCell" id="364-ju-fJA" customClass="ToggleCell" customModule="DubDub17" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="364-ju-fJA" id="3dA-Et-D0S">
@@ -452,8 +452,12 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                         <constraint firstAttribute="leadingMargin" secondItem="UyD-4v-Tzt" secondAttribute="leading" constant="-8" id="qzy-tT-vx5"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="toggleSwitch" destination="49d-CQ-1hx" id="67x-Qd-dkt"/>
+                                    <outlet property="valueTextLabel" destination="I3k-0s-Gmp" id="j7z-in-RCq"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" id="Ohx-2o-cSa">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" id="Ohx-2o-cSa" customClass="IndicatorToggleCell" customModule="DubDub17" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="100" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ohx-2o-cSa" id="Sta-Df-dte">
@@ -492,6 +496,11 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                         <constraint firstAttribute="leadingMargin" secondItem="SKX-JM-32F" secondAttribute="leading" constant="-28" id="QDs-s0-6az"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="indicatorView" destination="6At-zl-NCr" id="ABe-DW-F68"/>
+                                    <outlet property="toggleSwitch" destination="9bD-Rb-AWi" id="4k9-ZQ-4cj"/>
+                                    <outlet property="valueTextLabel" destination="ZmK-vn-K0z" id="558-mh-mSt"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="CheckmarkCell" textLabel="4do-3c-4Wy" style="IBUITableViewCellStyleDefault" id="LuD-8u-sBM">
                                 <rect key="frame" x="0.0" y="144" width="375" height="44"/>
@@ -505,6 +514,23 @@ The best way to avoid technical debt is to incrementally build-up technical cred
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResetCell" textLabel="fVP-63-rZP" style="IBUITableViewCellStyleDefault" id="5o2-2Z-IAf">
+                                <rect key="frame" x="0.0" y="188" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5o2-2Z-IAf" id="TBx-Ll-QME">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Reset All Filters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fVP-63-rZP">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <color key="textColor" red="0.84116786720000003" green="0.1864320636" blue="0.29441642759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

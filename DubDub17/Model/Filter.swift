@@ -32,6 +32,11 @@ class VideoFilter: Filter {
         trackOptions[track] = false
     }
     
+    func isTrackEnabled(_ track: Track) -> Bool {
+        guard let enabled = trackOptions[track] else { return false }
+        return enabled
+    }
+    
     func reset() {
         favoritesOnly = false
         eventYear = .all

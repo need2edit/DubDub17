@@ -8,6 +8,53 @@
 
 import UIKit
 
+protocol ValueCell {
+    associatedtype Value
+    func configureCellWithValue(_ value: Value)
+}
+
+protocol ValueRepresentable {
+    associatedtype Value
+    var value: Value { get }
+}
+
+public class ToggleCell: UITableViewCell, ValueCell {
+    
+    typealias Value = (String, Bool)
+    
+    @IBOutlet weak var valueTextLabel: UILabel!
+    @IBOutlet weak var toggleSwitch: UISwitch!
+    
+    func configureCellWithValue(_ value: (String, Bool)) {
+        valueTextLabel.text = value.0
+        toggleSwitch.setOn(value.1, animated: true)
+    }
+}
+
+public final class IndicatorToggleCell: ToggleCell {
+    
+    typealias Value = (String, Bool, UIColor)
+    
+    @IBOutlet weak var indicatorView: UIView!
+    
+    var indicatorColor: UIColor = .white {
+        didSet {
+            indicatorView.backgroundColor = indicatorColor
+        }
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        indicatorView.layer.cornerRadius = 4.0
+    }
+    
+    func configureCellWithValue(_ value: (String, Bool, UIColor)) {
+        valueTextLabel.text = value.0
+        toggleSwitch.setOn(value.1, animated: true)
+        indicatorColor = value.2
+    }
+}
+
 protocol SectionItemType {
     var items: [Any] { get }
 }
@@ -83,6 +130,19 @@ struct VideoFilterViewModel: ViewModel, SectionedDataSource {
                 default: return nil
             }
         }
+        
+        var reuseId: String {
+            switch self {
+            case .favorites, .videoOptions:
+                return "ToggleCell"
+            case .events, .platforms:
+                return "CheckmarkCell"
+            case .tracks:
+                return "TrackCell"
+            case .reset:
+                return "ResetCell"
+            }
+        }
     }
     
     var sections: [FilterSection] {
@@ -107,6 +167,56 @@ struct VideoFilterViewModel: ViewModel, SectionedDataSource {
     func titleForSection(_ section: Int) -> String? {
         return sectionAtIndex(section).title
     }
+    
+    func colorForTrack(_ track: Track) -> UIColor {
+        switch track {
+        case .featured:
+            return #colorLiteral(red: 0.2490291595, green: 0.355263561, blue: 0.4410368502, alpha: 1)
+        case .media:
+            return #colorLiteral(red: 0.861653924, green: 0.1677098572, blue: 0.2853348255, alpha: 1)
+        case .developerTools:
+            return #colorLiteral(red: 0.8989149928, green: 0.4645496607, blue: 0.2384812534, alpha: 1)
+        case .graphicsAndGames:
+            return #colorLiteral(red: 0.881817162, green: 0.6826372743, blue: 0.02100795321, alpha: 1)
+        case .systemsFrameworks:
+            return #colorLiteral(red: 0.6854068637, green: 0.7508594394, blue: 0.4246983826, alpha: 1)
+        case .appFrameworks:
+            return #colorLiteral(red: 0.1440612376, green: 0.655739069, blue: 0.586232543, alpha: 1)
+        case .design:
+            return #colorLiteral(red: 0.1122190729, green: 0.6833254695, blue: 0.81986624, alpha: 1)
+        case .distribution:
+            return #colorLiteral(red: 0.5343526006, green: 0.3801214993, blue: 0.6571785808, alpha: 1)
+        }
+    }
+    
+    func configureCell(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        
+        switch (sectionAtIndex(indexPath.section), indexPath.row) {
+            case (.favorites, _):
+                if let cell = cell as? ToggleCell, let label = getItem(at: indexPath) as? String {
+                    cell.configureCellWithValue((label, filter.favoritesOnly))
+                }
+            case (.videoOptions, let row):
+                if let cell = cell as? ToggleCell, let label = getItem(at: indexPath) as? String {
+                    let isEnabled = row == 0 ? filter.unwatchedVideosOnly : filter.downloadedVideosOnly
+                    cell.configureCellWithValue((label, isEnabled))
+            }
+            case (.events, _):
+                if let event = getItem(at: indexPath) as? EventYear {
+                    cell.textLabel?.text = event.description
+                    cell.accessoryType = event == filter.eventYear ? .checkmark : .none
+                }
+        case (.tracks, _):
+            if let cell = cell as? IndicatorToggleCell, let track = getItem(at: indexPath) as? Track {
+                let isEnabled = filter.isTrackEnabled(track)
+                let value = (track.description, isEnabled, colorForTrack(track))
+                cell.configureCellWithValue(value)
+            }
+            default:
+                return
+        }
+        
+    }
 
 }
 
@@ -127,7 +237,8 @@ class VideoFilterViewController: UITableViewController, MVVM {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToggleCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.sectionAtIndex(indexPath.section).reuseId, for: indexPath)
+        viewModel.configureCell(cell, at: indexPath)
         return cell
     }
     
