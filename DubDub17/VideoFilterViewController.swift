@@ -191,6 +191,8 @@ struct VideoFilterViewModel: ViewModel, SectionedDataSource {
     
     func configureCell(_ cell: UITableViewCell, at indexPath: IndexPath) {
         
+        cell.selectionStyle = .none
+        
         switch (sectionAtIndex(indexPath.section), indexPath.row) {
             case (.favorites, _):
                 if let cell = cell as? ToggleCell, let label = getItem(at: indexPath) as? String {
@@ -226,6 +228,10 @@ class VideoFilterViewController: UITableViewController, MVVM {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = VideoFilterViewModel()
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(UIViewController.simpleDismiss))
+            navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(UIViewController.simpleDismiss))
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
