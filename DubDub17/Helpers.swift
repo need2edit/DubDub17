@@ -26,3 +26,10 @@ extension UIViewController {
         
     }
 }
+
+
+extension UIViewController {
+   @IBAction func simpleDismiss() {
+        dismiss(animated: true, completion: nil)
+    }
+}
